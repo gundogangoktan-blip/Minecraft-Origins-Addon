@@ -1,0 +1,47 @@
+{
+    "name": "Tongue",
+    "description": "You can shoot out your tongue and pull your enemies closer.",
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:raycast",
+        "distance": 25,
+        "entity": true,
+        "before_action": {
+            "type": "origins:play_sound",
+            "sound": "minecraft:entity.frog.tongue",
+            "volume": 1,
+            "pitch": 2
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 2,
+                        "source": {
+                            "name": "cramming",
+                            "unblockable": true
+                        }
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": -1,
+                    "y": 0.5,
+                    "set": true
+                }
+            ]
+        },
+        "command_at_hit": "particle minecraft:dust 1.0 0.5 0.5 1.0",
+        "command_along_ray": "particle minecraft:dust 1.0 0.5 0.5 1.0",
+        "command_step": 0.1
+    },
+    "cooldown": 100,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+        "bar_index": 15
+    }
+}

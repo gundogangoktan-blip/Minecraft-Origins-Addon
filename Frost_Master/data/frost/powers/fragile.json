@@ -1,0 +1,35 @@
+{
+    "name": "Fragile",
+    "description": "Your body consists of flesh and ice. Take 2 times more damage from fire, and 2 less hearts.",
+    "type": "origins:multiple",
+    "health": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:exists"
+                }
+            ]
+        },
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "generic.max_health",
+            "operation": "addition",
+            "value": -4
+        },
+        "tick_rate": 1,
+        "update_health": true
+    },
+   "fire":
+   {
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:fire"
+
+    },
+    "modifier": {
+        "operation": "multiply_base",
+        "value": 2
+    }
+}
+}

@@ -1,0 +1,54 @@
+{
+    "name": "§b§nLiving frost",
+    "description": "§b§ Frost particles dance around you",
+    "type": "origins:multiple",
+    "notnormal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:falling_dust ice ~ ~ ~ 1 1 1 0.15 15"
+        },
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_fire",
+                    "inverted":true
+                },
+                {
+                    "type": "origins:power_active",
+                    "inverted":false,
+                    "power": "frost:slip"
+                }
+            ]
+        }
+    },
+    "normal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:snowflake ~ ~ ~ 1 1 1 0.15 15"
+        },
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_fire",
+                    "inverted":true
+                },
+                {
+                    "type": "origins:power_active",
+                    "inverted":true,
+                    "power": "frost:slip"
+                }
+            ]
+        }
+    },
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/dead_bush.png",
+            "text": "§b§ Wont work while on fire"
+        }
+    ]
+}

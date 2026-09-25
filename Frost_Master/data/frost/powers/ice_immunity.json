@@ -1,0 +1,87 @@
+{
+	"type": "origins:multiple",
+	"name": "§b§nIce Immunity",
+	"description": "You're immune to freezing damage.You can punch through powdered snow while sneaking.",
+
+	"immune_to_freezing": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "freeze"
+		}
+	},
+	"climbing": {
+		"type": "origins:climbing",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:in_block_anywhere",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:powder_snow"
+					}
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		}
+	},
+	"no_slowdown": {
+		"type": "origins:phasing",
+		"condition": {
+			"type": "origins:in_block_anywhere",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:powder_snow"
+			}
+		},
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:powder_snow"
+		}
+	},
+	"hit_through": {
+		"type": "origins:prevent_block_selection",
+		"block_condition": {
+			"type": "origins:block",
+			"block": "minecraft:powder_snow"
+		},
+		"condition": {
+			"type": "origins:sneaking"
+		}
+	},
+	"fall_damage": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"condition": {
+			"type": "origins:in_block_anywhere",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:powder_snow"
+			}
+		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1
+		}
+	},
+	"extinguish": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:extinguish"
+		},
+		"condition": {
+			"type": "origins:in_block_anywhere",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:powder_snow"
+			}
+		}
+	}
+}

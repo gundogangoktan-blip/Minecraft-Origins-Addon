@@ -1,0 +1,6 @@
+{
+    "function": "apoli:add_power",
+    "power": "frost:ice_skater",
+    "slot": "feet",
+    "negative": true
+}

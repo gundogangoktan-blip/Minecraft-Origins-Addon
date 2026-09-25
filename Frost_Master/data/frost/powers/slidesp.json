@@ -1,0 +1,223 @@
+{
+    "type":"origins:multiple",
+    "1":{
+    "type": "origins:swimming",
+    "condition": {
+        "type": "origins:on_block"
+    }
+},
+"2":{
+    
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function frost:frost_walker"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 3,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function frost:frost_walker"
+                        }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 7,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function frost:frost_walker"
+                        }
+                }
+
+            ]
+            
+        },
+        "condition": {
+            "type":"origins:and",
+            "conditions":[
+                {
+            "type": "origins:fluid_height",
+            "comparison":"==",
+            "compare_to": 0,
+            "fluid":"minecraft:water"
+                },
+                {
+                    "type": "origins:resource",
+					"resource": "frost:bar_bar",
+					"comparison": ">",
+					"compare_to": 4
+                },
+                {
+                    "type":"origins:sprinting"
+                }
+            ]
+            
+        },
+        "cooldown": 100,
+        "key": {
+            "key": "key.sneak",
+            "continuous": true
+        }
+    
+},
+"3": {
+    "type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+			{
+				"condition": {
+					"type": "origins:and",
+					"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "frost:bar_bar",
+						"comparison": ">=",
+						"compare_to": 0
+					},
+					{
+						"type": "origins:resource",
+						"resource": "frost:bar_bar",
+						"comparison": "<",
+						"compare_to": 20
+					}
+					]
+				},
+				"action": {
+					"type": "origins:area_of_effect",
+					"radius": 1.5,
+					"bientity_action": {
+						"type": "origins:and",
+						"actions": [
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+								]
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "data modify entity @s PickupDelay set value 0"
+								},
+								{
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:damage",
+										"amount": 1,
+										"source": {
+											"name": "player",
+											"bypasses_armor": true,
+											"unblockable": true
+										}
+									}
+								},
+								{
+									"type": "origins:chance",
+									"chance": 0.1,
+									"action": {
+										"type": "origins:grant_power",
+										"power": "frost:frozen",
+										"source": "frost:frost"
+									}
+								}
+								]
+							}
+						}
+						]
+					},
+					"target_condition": {
+						"type": "origins:living"
+					}
+				}
+            },
+            {
+				"condition": {
+					"type": "origins:and",
+					"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "frost:bar_bar",
+						"comparison": ">=",
+						"compare_to": 20
+					},
+					{
+						"type": "origins:resource",
+						"resource": "frost:bar_bar",
+						"comparison": "<=",
+						"compare_to": 100
+					}
+					]
+				},
+				"action": {
+					"type": "origins:area_of_effect",
+					"radius": 2,
+					"bientity_action": {
+						"type": "origins:and",
+						"actions": [
+						{
+							"type": "origins:actor_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+								]
+							}
+						},
+						{
+							"type": "origins:target_action",
+							"action": {
+								"type": "origins:and",
+								"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "data modify entity @s PickupDelay set value 0"
+								},
+								{
+									"type": "origins:delay",
+									"ticks": 1,
+									"action": {
+										"type": "origins:damage",
+										"amount": 3,
+										"source": {
+											"name": "player",
+											"bypasses_armor": true,
+											"unblockable": true
+										}
+									}
+								},
+								{
+									"type": "origins:chance",
+									"chance": 0.1,
+									"action": {
+										"type": "origins:grant_power",
+										"power": "frost:frozen",
+										"source": "frost:frost"
+									}
+								}
+								]
+							}
+						}
+						]
+					},
+					"target_condition": {
+						"type": "origins:living"
+					}
+				}
+            }
+            ]
+			
+}
+}
+}

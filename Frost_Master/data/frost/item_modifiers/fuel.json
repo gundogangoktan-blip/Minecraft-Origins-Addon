@@ -1,0 +1,6 @@
+{
+    "function": "apoli:add_power",
+    "power": "frost:fuel",
+    "slot": "feet",
+    "negative": true
+}

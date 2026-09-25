@@ -1,0 +1,17 @@
+{
+	"hidden":  true,
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"type": "origins:projectile",
+				"projectile": "minecraft:snowball"
+			}
+		]
+    },
+    "modifier": {
+        "name": "dmge",
+        "operation": "addition",
+        "value": 0.1
+    }
+}

@@ -1,0 +1,57 @@
+{
+	"type": "origins:multiple",
+	"name": "§b§nIce Skater",
+	"description": "You get +50% speed on snow and ice, and +100% faster on blue ice.",
+
+	"speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "addition",
+			"value": 0.05
+		},
+		"tick_rate": 5,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:on_block",
+							"block_condition": {
+								"type": "origins:in_tag",
+								"tag": "frost:freeze"
+							}
+						},
+						{
+							"type": "origins:in_block_anywhere",
+							"block_condition": {
+								"type": "origins:block",
+								"block": "minecraft:snow"
+							}
+						}
+					]
+				}
+			]
+		}
+	},
+	"speed_2": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "addition",
+			"value": 0.1
+		},
+		"tick_rate": 5,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:on_block",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:blue_ice"
+					}
+				}
+			]
+		}
+	}
+}

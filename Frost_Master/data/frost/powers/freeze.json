@@ -1,0 +1,55 @@
+{
+    "type":"origins:multiple",
+    "normal":{
+    "type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type":"origins:chance",
+        "action": {
+        "type": "origins:and",
+        "actions":[
+
+            {
+                "type": "origins:grant_power",
+                "power": "frost:slip2",
+                "source": "frost:frost_master"
+
+            }
+        ]
+    },
+    "chance": 0.05
+        
+    },
+    "cooldown": 0
+},
+"snowball":{
+    "type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type":"origins:chance",
+        "action": {
+        "type": "origins:and",
+        "actions":[
+
+            {
+                "type": "origins:grant_power",
+                "power": "frost:slip2",
+                "source": "frost:frost_master"
+
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "power grant @s frost:frozen"
+            }
+        ]
+    },
+    "chance": 1
+        
+    },
+    "cooldown": 0,
+    "damage_condition": {
+        "type": "origins:projectile",
+    "projectile": "minecraft:snowball"
+    }
+
+}
+   
+}

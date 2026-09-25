@@ -1,0 +1,29 @@
+{
+	"powers": [
+		"night:blinding",
+		"night:health",
+		"night:nightvision",
+		"night:climbing",
+		"night:master_of_webs",
+		"night:natural",
+		"night:heliophobia",
+		"night:stun",
+		"night:carnivore",
+		"night:tongue",
+		"night:cloudyinstinct",
+		"night:big_jumps",
+		"night:sneaky",
+		"night:dash",
+		"night:effectnt",
+		"night:fighter",
+		"night:lick",
+		"night:fallimmune",
+		"origins:no_shield"
+	],
+	"icon": "minecraft:vine",
+	"order": 10,
+	"impact": 2,
+	"name": "Night Hunter",
+	"description": "Stalk at the light and hunt at the night"
+
+}

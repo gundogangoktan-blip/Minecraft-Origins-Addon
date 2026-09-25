@@ -1,0 +1,536 @@
+{
+	"name": "§6§l§nDash",
+	"description": "§7You can dash-slide using your frost",
+	"badges": [{
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/powder_snow_bucket.png",
+        "text": "§b§ Dash-slide can freeze water,damages and slips the feet of creatures that are in the way"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "§b§ As your frost gets lower damage and slipping chance decreases"
+    },
+	{
+        "type": "origins:keybind",
+        "sprite": "origins:textures/gui/badge/active.png",
+        "text": "Use with %s while sprinting"
+    }
+],
+	"type": "origins:multiple",
+	"duration": {
+		"type": "origins:cooldown",
+		"cooldown": 10,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"slide": {
+		"type": "origins:swimming",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:sprinting"
+			},
+			{
+				"type": "origins:sneaking"
+			},
+			{
+				"type": "origins:on_block"
+			},
+			{
+				"type": "origins:resource",
+				"resource": "*:*_duration",
+				"comparison": ">",
+				"compare_to": 0
+			}
+			]
+		}
+	},
+	"damage": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+						{
+							"type": "origins:resource",
+						"resource": "frost:bar_bar",
+						"comparison": ">",
+						"compare_to": 4
+						},
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": "<",
+							"compare_to": 30
+						}
+						]
+					},
+					"action": {
+						"type": "origins:area_of_effect",
+						"radius": 1.5,
+						"bientity_action": {
+							"type": "origins:and",
+							"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_duration",
+										"change": 10,
+										"operation": "set"
+									}
+									]
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "data modify entity @s PickupDelay set value 0"
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 1,
+										"action": {
+											"type": "origins:damage",
+											"amount": 1,
+											"source": {
+												"name": "player",
+												"bypasses_armor": false,
+												"unblockable": true
+											}
+										}
+									},
+									{
+										"type": "origins:chance",
+										"chance": 0.1,
+										"action": {
+											"type": "origins:grant_power",
+											"power": "frost:slip2",
+											"source": "frost:frost_master"
+										}
+									}
+									]
+								}
+							}
+							]
+						},
+						"target_condition": {
+							"type": "origins:living"
+						}
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": ">=",
+							"compare_to": 30
+						},
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": "<",
+							"compare_to": 60
+						}
+						]
+					},
+					"action": {
+						"type": "origins:area_of_effect",
+						"radius": 1.5,
+						"bientity_action": {
+							"type": "origins:and",
+							"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_duration",
+										"change": 10,
+										"operation": "set"
+									}
+									]
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "data modify entity @s PickupDelay set value 0"
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 1,
+										"action": {
+											"type": "origins:damage",
+											"amount": 2,
+											"source": {
+												"name": "player",
+												"bypasses_armor": true,
+												"unblockable": true
+											}
+										}
+									},
+									{
+										"type": "origins:chance",
+										"chance": 0.11,
+										"action": {
+											"type": "origins:grant_power",
+											"power": "frost:slip2",
+											"source": "frost:frost_master"
+										}
+									}
+									]
+								}
+							}
+							]
+						},
+						"target_condition": {
+							"type": "origins:living"
+						}
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": ">=",
+							"compare_to": 60
+						},
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": "<",
+							"compare_to": 90
+						}
+						]
+					},
+					"action": {
+						"type": "origins:area_of_effect",
+						"radius": 1.5,
+						"bientity_action": {
+							"type": "origins:and",
+							"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_duration",
+										"change": 10,
+										"operation": "set"
+									}
+									]
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "data modify entity @s PickupDelay set value 0"
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 1,
+										"action": {
+											"type": "origins:damage",
+											"amount": 3,
+											"source": {
+												"name": "player",
+												"bypasses_armor": true,
+												"unblockable": true
+											}
+										}
+									},
+									{
+										"type": "origins:chance",
+										"chance": 0.12,
+										"action": {
+											"type": "origins:grant_power",
+											"power": "frost:slip2",
+											"source": "frost:frost_master"
+										}
+									}
+									]
+								}
+							}
+							]
+						},
+						"target_condition": {
+							"type": "origins:living"
+						}
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": ">=",
+							"compare_to": 90
+						},
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": "<",
+							"compare_to": 120
+						}
+						]
+					},
+					"action": {
+						"type": "origins:area_of_effect",
+						"radius": 1.5,
+						"bientity_action": {
+							"type": "origins:and",
+							"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_duration",
+										"change": 10,
+										"operation": "set"
+									}
+									]
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "data modify entity @s PickupDelay set value 0"
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 1,
+										"action": {
+											"type": "origins:damage",
+											"amount": 4,
+											"source": {
+												"name": "player",
+												"bypasses_armor": false,
+												"unblockable": true
+											}
+										}
+									},
+									{
+										"type": "origins:chance",
+										"chance": 0.13,
+										"action": {
+											"type": "origins:grant_power",
+											"power": "frost:slip2",
+											"source": "frost:frost_master"
+										}
+									}
+									]
+								}
+							}
+							]
+						},
+						"target_condition": {
+							"type": "origins:living"
+						}
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": ">=",
+							"compare_to": 120
+						},
+						{
+							"type": "origins:resource",
+							"resource": "frost:bar_bar",
+							"comparison": "<=",
+							"compare_to": 150
+						}
+						]
+					},
+					"action": {
+						"type": "origins:area_of_effect",
+						"radius": 1.5,
+						"bientity_action": {
+							"type": "origins:and",
+							"actions": [
+							{
+								"type": "origins:actor_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "*:*_duration",
+										"change": 10,
+										"operation": "set"
+									}
+									]
+								}
+							},
+							{
+								"type": "origins:target_action",
+								"action": {
+									"type": "origins:and",
+									"actions": [
+									{
+										"type": "origins:execute_command",
+										"command": "data modify entity @s PickupDelay set value 0"
+									},
+									{
+										"type": "origins:delay",
+										"ticks": 1,
+										"action": {
+											"type": "origins:damage",
+											"amount": 5,
+											"source": {
+												"name": "player",
+												"bypasses_armor": true,
+												"unblockable": true
+											}
+										}
+									},
+									{
+										"type": "origins:chance",
+										"chance": 0.15,
+										"action": {
+											"type": "origins:grant_power",
+											"power": "frost:slip2",
+											"source": "frost:frost_master"
+										}
+									}
+									]
+								}
+							}
+							]
+						},
+						"target_condition": {
+							"type": "origins:living"
+						}
+					}
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:sprinting"
+			},
+			{
+				"type": "origins:sneaking"
+			},
+			{
+				"type": "origins:on_block"
+			},
+			{
+				"type": "origins:resource",
+				"resource": "*:*_duration",
+				"comparison": ">",
+				"compare_to": 0
+			}
+			]
+		}
+	},
+	"activate": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+			{
+				"type": "origins:trigger_cooldown",
+				"power": "*:*_duration"
+			},
+			{
+				"type":"origins:execute_command",
+				"command":"power grant @s frost:slidesp"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 15,
+				"action": {
+				"type":"origins:execute_command",
+				"command":"power revoke @s frost:slidesp"
+					}
+			},
+			{
+				"type": "origins:play_sound",
+				"sound": "minecraft:block.grindstone.use",
+				"volume": 10,
+				"pitch": 1.2
+			},
+			{
+				"type": "origins:add_velocity",
+				"z": 1,
+				"space": "local_horizontal_normalized"
+			}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "frost:bar_bar",
+				"comparison": ">=",
+				"compare_to": 5
+			},
+			{
+				"type": "origins:sprinting"
+			},
+			{
+				"type": "origins:on_block"
+			}
+			]
+		},
+		"cooldown": 60,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 0
+		},
+		"key": {
+			"key": "key.sneak"
+		}
+	}
+}

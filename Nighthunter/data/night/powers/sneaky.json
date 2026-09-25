@@ -1,0 +1,6 @@
+{
+  "type": "origins:prevent_game_event",
+  "event": "minecraft:step",
+  "name": "Sneaky step",
+  "description": "Your feet make no sound"
+}

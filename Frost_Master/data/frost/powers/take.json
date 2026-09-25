@@ -1,0 +1,83 @@
+{
+    "name": "Ice touch",
+    "description": "You can carry ice",
+    "type":"origins:multiple",
+    "ice":{
+    "type": "origins:action_on_block_break",
+    "block_action": {
+        "type":"origins:and",
+        "actions": [
+            {
+        "type": "origins:execute_command",
+        "command": "summon minecraft:item ~ ~ ~ {Item:{id:\"minecraft:ice\",Count:1}}"
+            },
+            {
+                "type": "origins:set_block",
+                "block": "minecraft:air"
+            }
+    ]
+    },
+    "block_condition": {
+       
+        "type": "origins:block",
+        "block": "minecraft:ice"
+        
+    },
+    "only_when_harvested": false
+},
+"blueice":{
+    "type": "origins:action_on_block_break",
+    "block_action": {
+        "type":"origins:and",
+        "actions": [
+            {
+        "type": "origins:execute_command",
+        "command": "summon minecraft:item ~ ~ ~ {Item:{id:\"minecraft:blue_ice\",Count:1}}"
+            },
+            {
+                "type": "origins:set_block",
+                "block": "minecraft:air"
+            }
+    ]
+    },
+    "block_condition": {
+       
+        "type": "origins:block",
+        "block": "minecraft:blue_ice"
+        
+    },
+    "only_when_harvested": false
+},
+"packice":{
+    "type": "origins:action_on_block_break",
+    "block_action": {
+        "type":"origins:and",
+        "actions": [
+            {
+        "type": "origins:execute_command",
+        "command": "summon minecraft:item ~ ~ ~ {Item:{id:\"minecraft:packed_ice\",Count:1}}"
+            },
+            {
+                "type": "origins:set_block",
+                "block": "minecraft:air"
+            }
+    ]
+    },
+    "block_condition": {
+       
+        "type": "origins:block",
+        "block": "minecraft:packed_ice"
+        
+    },
+    "only_when_harvested": false
+},
+"snowb":
+{
+    "type": "origins:modify_harvest",
+    "block_condition": {
+        "type": "origins:block",
+        "block": "minecraft:snow_block"
+    },
+    "allow": true
+}
+}

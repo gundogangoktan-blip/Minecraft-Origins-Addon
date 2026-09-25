@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"frost:fragile",
+		"frost:ice_immunity",
+		"frost:freeze",
+		"frost:slipper2",
+		"frost:particle",
+		"frost:bar",
+		"frost:icebreath",
+		"frost:take",
+		"frost:snowball",
+		"frost:frostdash",
+		"frost:frozen"
+
+
+	],
+	"icon": "minecraft:packed_ice",
+	"order": 13,
+	"impact": 3,
+	"name": "Frost Master",
+	"description": "You have mastered the way of frost"
+}

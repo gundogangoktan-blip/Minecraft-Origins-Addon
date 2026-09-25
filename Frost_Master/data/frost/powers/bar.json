@@ -1,0 +1,251 @@
+{
+    "name": "§b§nFrost Bar",
+    "description": "§b§ Bar that most of your abilities use",
+    "type": "origins:multiple",
+    "snow": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_bar",
+                    "change": 5
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:snow_block"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar",
+                    "comparison": "!=",
+                    "compare_to": 150
+
+                }
+            ]
+        }
+
+    },
+    "give": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_bar",
+            "change": 1
+        },
+        "interval": 20,
+        "condition": {
+    "type": "origins:fluid_height",
+    "inverted":true,
+    "fluid": "minecraft:water",
+    "comparison": "==",
+    "compare_to": 0
+}
+},
+    "ice": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_bar",
+                    "change": 15
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:ice"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar",
+                    "comparison": "!=",
+                    "compare_to": 150
+
+                }
+            ]
+        }
+
+    },
+    "pice": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_bar",
+                    "change": 25
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:packed_ice"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar",
+                    "comparison": "!=",
+                    "compare_to": 150
+
+                }
+            ]
+        }
+
+    },
+    "bice": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_bar",
+                    "change": 75
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:blue_ice"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bar",
+                    "comparison": "!=",
+                    "compare_to": 150
+
+                }
+            ]
+        }
+
+    },
+    "bar": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 150,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 8
+        }
+    },
+    "consume2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_bar",
+            "change": -25
+        },
+        "interval": 40,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_fire"
+                }
+            ]
+        }
+    },
+    
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/snowball.png",
+            "text": "§b§ Bar increses by eating ice or snow blocks,staying in water and by wearing the artifact."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/packed_ice.png",
+            "text": "§b§ Use snow or ice blocks while in mainhand with load hotbar activator.Each different block fills a different amount"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/dead_bush.png",
+            "text": "§b§ Bar decreases while in fire"
+        }
+        
+    ]
+}

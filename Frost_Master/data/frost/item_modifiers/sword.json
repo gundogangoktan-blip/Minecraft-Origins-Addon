@@ -1,0 +1,6 @@
+{
+    "function": "apoli:add_power",
+    "power": "frost:weaponab_sword",
+    "slot": "mainhand",
+    "negative": false
+}
