@@ -1,0 +1,11 @@
+{
+    "hidden":true,
+    "name":"§6§n The Test",
+    "description":"§6§ Are you worthy?",
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command":"clear @a[tag=!Flame] netherite_pickaxe 1"
+    },
+    "interval": 1
+}

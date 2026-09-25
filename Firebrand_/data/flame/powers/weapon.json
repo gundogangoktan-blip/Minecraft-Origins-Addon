@@ -1,0 +1,11 @@
+{
+    "name":"§6§nAbsorb",
+    "description":"§6§ Absorb the power of the flames recharging your fuelbar",
+    "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "flame:flame_fuel",
+            "change": 4
+        },
+        "interval": 40
+}

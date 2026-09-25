@@ -1,0 +1,17 @@
+{
+    "type": "origins:invulnerability",
+    "name": "Light",
+    "description": "You are immune to kinetic damage.",
+    "damage_condition": {
+        "type": "origins:or",
+        "inverted": false,
+        "conditions": [
+            {
+                "type": "origins:name",
+                "inverted": false,
+                "name": "flyIntoWall"
+            }
+           
+        ]
+    }
+}

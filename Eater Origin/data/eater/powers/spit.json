@@ -1,0 +1,378 @@
+{
+
+    "name": "Spit",
+    "description": "Spit the mob you swallowed.Every mob swallowed has a different effect",
+    "type": "origins:multiple",
+    "jidw": {
+
+        "type": "origins:fire_projectile",
+        "entity_type": "minecraft:creeper",
+        "tag": "{Tags:[crep]}",
+        "sound": "entity.llama.spit",
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 1,
+            "comparison": "==",
+            "resource": "eater:swallow_hasfood"
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+
+    },
+    "skeleton": {
+        "type": "origins:fire_projectile",
+        "entity_type": "minecraft:arrow",
+        "sound": "entity.skeleton.death",
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 2,
+            "comparison": "==",
+            "resource": "eater:swallow_hasfood"
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "tag": "{pickup:0b}",
+        "divergence": 1,
+        "speed": 3,
+        "count": 10,
+        "interval": 3
+    },
+    "blaze": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:resource",
+                "resource": "eater:swallow_hasfood",
+                "comparison": "==",
+                "compare_to": 5
+            }]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 30,
+            "block": true,
+            "entity": true,
+            "shape_type": "outline",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [{
+                            "type": "origins:explode",
+                            "power": 1,
+                            "destruction_type": "none",
+                            "damage_self": true,
+                            "create_fire": false
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 0,
+                            "source": {
+                                "name": "magic",
+                                "bypasses_armor": false,
+                                "magic": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "hit_action": {
+                "type": "origins:play_sound",
+                "sound": "entity.blaze.death",
+                "volume": 1,
+                "pitch": 1
+            },
+            "command_along_ray": "particle minecraft:flame"
+        },
+
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+    },
+    "yamo2": {
+
+        "type": "origins:fire_projectile",
+        "entity_type": "minecraft:wither_skull",
+        "sound": "entity.wither_skeleton.death",
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 6,
+            "comparison": "==",
+            "resource": "eater:swallow_hasfood"
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "tag": "{NoGravity:0b,ExplosionPower:1.5b,life:60,Item:{id:\"minecraft:wither_skeleton_skull\",Count:5b}}"
+    },
+    "poison": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:resource",
+                "resource": "eater:swallow_hasfood",
+                "comparison": "==",
+                "compare_to": 3
+            }]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 30,
+            "block": true,
+            "entity": true,
+            "shape_type": "outline",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [{
+                            "type": "origins:apply_effect",
+                            "effect": {
+                                "effect": "minecraft:poison",
+                                "duration": 100,
+                                "amplifier": 2,
+                                "show_particles": true,
+                                "show_icon": true
+                            }
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 4,
+                            "source": {
+                                "name": "magic",
+                                "bypasses_armor": false,
+                                "magic": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "hit_action": {
+                "type": "origins:play_sound",
+                "sound": "entity.spider.death",
+                "volume": 1,
+                "pitch": 1
+            },
+            "command_along_ray": "particle minecraft:falling_spore_blossom"
+        },
+
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+    },
+    "blind": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:resource",
+                "resource": "eater:swallow_hasfood",
+                "comparison": "==",
+                "compare_to": 7
+            }]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 30,
+            "block": true,
+            "entity": true,
+            "shape_type": "outline",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [{
+                            "type": "origins:apply_effect",
+                            "effect": {
+                                "effect": "minecraft:blindness",
+                                "duration": 100,
+                                "amplifier": 1,
+                                "show_particles": true,
+                                "show_icon": true
+                            }
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 8,
+                            "source": {
+                                "name": "magic",
+                                "bypasses_armor": false,
+                                "magic": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "hit_action": {
+                "type": "origins:play_sound",
+                "sound": "entity.squid.death",
+                "volume": 1,
+                "pitch": 1
+            },
+            "command_along_ray": "particle minecraft:squid_ink"
+        },
+
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+    },
+    "abcd": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:resource",
+                "resource": "eater:swallow_hasfood",
+                "comparison": "==",
+                "compare_to": 8
+            }]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 30,
+            "block": true,
+            "entity": true,
+            "shape_type": "outline",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [{
+                            "type": "origins:apply_effect",
+                            "effect": {
+                                "effect": "minecraft:glowing",
+                                "duration": 600,
+                                "amplifier": 1,
+                                "show_particles": true,
+                                "show_icon": true
+                            }
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 8,
+                            "source": {
+                                "name": "magic",
+                                "bypasses_armor": false,
+                                "magic": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "hit_action": {
+                "type": "origins:play_sound",
+                "sound": "entity.glow_squid.death",
+                "volume": 1,
+                "pitch": 1
+            },
+            "command_along_ray": "particle minecraft:glow_squid_ink"
+        },
+
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+    },
+    "jffjoksds": {
+
+        "type": "origins:fire_projectile",
+        "entity_type": "minecraft:ender_pearl",
+        "sound": "entity.ender_pearl.throw",
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 4,
+            "comparison": "==",
+            "resource": "eater:swallow_hasfood"
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "divergence": 1,
+        "count": 1,
+        "speed": 1.5
+
+
+    },
+
+    "kdfenwj": {
+        "type": "origins:active_self",
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 1,
+            "comparison": ">=",
+            "resource": "eater:swallow_hasfood"
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "entity_action": {
+            "type": "origins:delay",
+            "action": {
+                "type": "origins:change_resource",
+                "change": 0,
+                "operation": "set",
+                "resource": "eater:swallow_hasfood"
+            },
+            "ticks": 2
+        }
+    },
+    "flkknsjn": {
+
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 64,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:explode",
+                    "create_fire": false,
+                    "damage_self": true,
+                    "power": 3,
+                    "destruction_type": "break"
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{OnGround:1b,Tags:[crep]}"
+                }
+            }
+
+        },
+        "interval": 20
+    }
+}

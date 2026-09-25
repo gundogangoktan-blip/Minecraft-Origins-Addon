@@ -1,0 +1,8 @@
+{
+    "name":"Extra Crispy",
+    "description":"You cannot eat normal foods including gapples",
+    "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:food"
+        }
+    }

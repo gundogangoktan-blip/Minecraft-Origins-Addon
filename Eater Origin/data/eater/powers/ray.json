@@ -1,0 +1,91 @@
+{
+	"hidden": true,
+	"condition": {
+		"type": "origins:power_active",
+		"power": "eater:spit_skeleton"
+	},
+	"type": "origins:modify_projectile_damage",
+	"damage_condition": {
+		"type": "origins:and",
+		"conditions": [{
+				"inverted": true,
+				"type": "origins:attacker",
+				"entity_condition": {
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:arrow"
+						}
+
+					}
+
+				}
+
+
+			},
+			{
+				"inverted": true,
+				"type": "origins:attacker",
+				"entity_condition": {
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:arrow"
+						}
+
+					}
+				}
+			},
+			{
+				"type": "origins:projectile",
+				"projectile": "minecraft:arrow"
+			}
+		]
+	},
+
+	"modifier": {
+		"operation": "addition",
+		"value": 1
+	},
+	"bientity_action": {
+		"type": "origins:choice",
+		"actions": [{
+				"element": {
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:slowness",
+						"amplifier": 0,
+						"duration": 100
+					}
+				},
+				"weight": 10
+			},
+			{
+				"element": {
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:weakness",
+						"amplifier": 0,
+						"duration": 100
+					}
+				},
+				"weight": 10
+			},
+			{
+				"element": {
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:instant_damage",
+						"amplifier": 0,
+						"duration": 1
+					}
+				},
+				"weight": 10
+			}
+		]
+	}
+}

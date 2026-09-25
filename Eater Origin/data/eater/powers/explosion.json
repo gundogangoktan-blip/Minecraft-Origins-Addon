@@ -1,0 +1,60 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:entity_action",
+        "type": "origins:add_velocity",
+        "y": 1
+      },
+      {
+        "type": "origins:entity_action",
+        "type": "origins:add_velocity",
+        "z": 1,
+        "space": "local"
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "clear @s minecraft:gunpowder 1",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:explosion_emitter ~ ~.3 ~ 0.1 0.1 0.1 0.3 11 force",
+        "permission_level": 4
+      },
+      {
+         "type": "origins:feed",
+         "food": 5,
+         "saturation": 2
+      }
+    ]
+  },
+  "condition": {
+
+    "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+    "item_condition": {
+
+      "type": "origins:ingredient",
+      "ingredient": {
+
+        "item": "minecraft:gunpowder"
+      }
+    }
+
+  },
+  "key": {
+    "key": "key.use",
+    "continuous": false
+  },
+  "cooldown": 200,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "origins:textures/gui/resource_bar.png",
+    "bar_index": 0
+  },
+  "name": "Loose Canon",
+  "description": "You are able to launch yourself through the air by eating gunpowder."
+}

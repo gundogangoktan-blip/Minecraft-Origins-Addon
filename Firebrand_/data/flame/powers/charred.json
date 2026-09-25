@@ -1,0 +1,10 @@
+{
+    "type": "origins:attribute",
+	"name": "§b§nCharred Flesh",
+	"description": "§b§ You have 3 less hearts than a human and have no natural regeneration",
+    "modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "value": -6,
+        "operation": "addition"
+    }
+}

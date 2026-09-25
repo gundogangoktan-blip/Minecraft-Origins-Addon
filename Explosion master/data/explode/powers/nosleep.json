@@ -1,0 +1,7 @@
+{
+    "name": "Got used to it",
+    "description": "You got used to beds exploding so you dont even try do sleep.\n(Still able to make spawnpoint).",
+    "type": "origins:prevent_sleep",
+    "message": "You know it will explode like always.Why bother?.",
+    "set_spawn_point": true
+}

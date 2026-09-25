@@ -1,0 +1,53 @@
+{
+    "name": "Explosion Immunity",
+    "description": "Explosions cannot harm you but your armor still takes damage",
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "value": -0.9999999,
+      "operation": "multiply_base"
+    },
+    "damage_condition": 
+    {
+      "type": "origins:or",
+        "conditions": [
+          {
+            "type": "origins:name",
+            "name": "explosion"
+        },
+        {
+            "type": "origins:name",
+            "name": "explosion.player"
+        },
+        {
+            "type": "origins:name",
+            "name": "badRespawnPoint"
+        },
+        {
+            "type": "origins:name",
+            "name": "fireworks.item"
+        },
+        {
+            "type": "origins:name",
+            "name": "fireworks.player"
+        },
+        {
+            "type": "origins:name",
+            "name": "fireworks"
+        },
+        {
+            "type": "origins:name",
+            "name": "fireball"
+        }, 
+        {
+            "type": "origins:name",
+            "name": "fireball.item"
+        },
+        {
+            "type": "origins:name",
+            "name": "witherSkull"
+        }
+      ],
+        "name": "Explosive Healing",
+        "description": "Explosions heals you by 1/1 rate."
+      }
+}

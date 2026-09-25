@@ -1,0 +1,7 @@
+{
+    "type": "origins:particle",
+	"name": "Smokey Boi",
+	"description": "Smoke particles surround you.",
+    "particle": "minecraft:large_smoke",
+    "frequency": 1
+}

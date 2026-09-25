@@ -1,0 +1,41 @@
+{
+    "name": "§7§nLiving fire",
+    "description": "§7§ Fire particles dance around you",
+    "type": "origins:multiple",
+    "normal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:flame ~ ~ ~ 1 1 1 0.15 15"
+        },
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "==",
+            "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "inverted":true,
+                    "power": "flame:wrath_normal"
+                }
+            ]
+        }
+    },
+    "underwater": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:large_smoke ~ ~ ~ 1 1 1 0.15 15"
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "!=",
+            "compare_to": 0
+        }
+    }
+}

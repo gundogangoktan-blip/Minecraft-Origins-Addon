@@ -1,0 +1,45 @@
+{
+    "name": "Butterfingered Hands",
+    "description": "You cant use shields,drink potions,use crossbows and use buckets",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:or",
+        "conditions": [{
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "potion"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "shield"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "crossbow"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "bucket"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "water_bucket"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "lava_bucket"
+                }
+            }
+        ]
+    }
+}

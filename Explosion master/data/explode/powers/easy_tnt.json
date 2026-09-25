@@ -1,0 +1,44 @@
+{
+	"name": "§a§nBomb crafting",
+	"description": "You can craft TNT using 2 pieces of gunpowder. You can also craft 2 pieces of gunpowder using  black dye and redstone dust",
+	"type": "origins:multiple",
+
+	"tnt": {
+		"type": "origins:recipe",
+    		"recipe": {
+        		"id": "arsonist:easy_tnt",
+        		"type": "minecraft:crafting_shapeless",
+        		"ingredients": [
+
+				{
+                			"item": "minecraft:gunpowder"
+            			},
+				{
+                			"item": "minecraft:gunpowder"
+            			}
+        		],
+        		"result": {
+            			"item": "minecraft:tnt"
+        		}
+    		}
+	},
+	"gunpowder": {
+		"type": "origins:recipe",
+    		"recipe": {
+        		"id": "arsonist:easy_gunpowder",
+        		"type": "minecraft:crafting_shapeless",
+        		"ingredients": [
+            			{
+                			"item": "minecraft:black_dye"
+            			},
+				{
+                			"item": "minecraft:redstone"
+            			}
+        		],
+        		"result": {
+            			"item": "minecraft:gunpowder",
+				"count": 2
+        		}
+    		}
+	}
+}

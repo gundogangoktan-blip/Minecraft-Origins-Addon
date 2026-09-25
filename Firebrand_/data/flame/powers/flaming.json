@@ -1,0 +1,29 @@
+{
+    "name": "§b§nFlaming Hands",
+    "description": "§b§ Bows,Crossbows and Shields burn in your hands",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "shield"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "crossbow"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "bow"
+                }
+            }
+            
+        ]
+    }
+}

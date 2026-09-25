@@ -1,0 +1,99 @@
+{
+	"type": "origins:multiple",
+	"1": {
+		"type": "origins:action_over_time",
+		"interval": 40,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:execute_command",
+				"command": "execute as @s run function flame:smelt"
+			}]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "flame:hand_smeltable"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "flame:flame_fuel",
+					"comparison": ">=",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				}
+			]
+		}
+	},
+	"toggle": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"key": {
+			"key": "key.saveToolbarActivator"
+		},
+		"condition": {
+			"type": "origins:equipped_item",
+			"equipment_slot": "offhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"tag": "flame:hand_smeltable"
+				}
+			}
+		}
+
+	},
+	"consume": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "flame:flame_fuel",
+			"change": -4
+		},
+		"interval": 40,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+	"particle": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:soul_fire_flame ~ ~ ~ 1 1 1 0.15 5"
+		},
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+	"name": "§6§nSmelt",
+	"description": "§6§ Use your flames to smelt items in your offhand",
+	"badges": [{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/item/blaze_powder.png",
+			"text": "§6§ You can smelt almost all items except some high fire resistanced items"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/block/dead_bush.png",
+			"text": "§6§ Uses flame resource and wont work without it"
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": "§6§ Toggle with %s!"
+		}
+
+	]
+}

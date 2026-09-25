@@ -1,0 +1,95 @@
+{
+    "name": "§6§nFuel",
+    "description": "§6§ When on fire, channels the flames into your next attack, dealing more damage.",
+    "type": "origins:multiple",
+    "1": {
+        "loading_priority": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:on_fire"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle"
+
+                }
+            ]
+        },
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "player"
+        },
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.25
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:chance",
+                    "action": {
+                        "type": "origins:extinguish"
+                    },
+                    "chance": 0.60
+                },
+
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.blaze.hurt",
+                    "volume": 0.5,
+                    "pitch": 1.3
+                }
+            ]
+
+        }
+    },
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "key.loadToolbarActivator"
+        }
+    },
+    "normal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:soul_fire_flame ~ ~ ~ 1 1 1 0.15 15"
+        },
+        "interval":40,
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "==",
+            "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle"
+                }
+            ]
+        }
+        
+    },
+    "badges": [{
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/blaze_powder.png",
+            "text": "§6§ Deal %25 more damage while on fire"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/dead_bush.png",
+            "text": "§6§ %60 chance to extinguish yourself when you hit something"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§6§ Toggle with %s!"
+        }
+    ]
+}

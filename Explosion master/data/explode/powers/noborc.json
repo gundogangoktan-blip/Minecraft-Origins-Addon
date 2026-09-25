@@ -1,0 +1,26 @@
+{
+    "name": "Tnt is enough",
+    "description": "You may not use bows,crossbows and shields.",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "bow"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "crossbow"
+                },
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item":"shield"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Fear of Water",
+    "description": "You Can't Swim In Water,And Your Weaker In It",
+    "condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        ]
+    },
+    "type": "origins:action_over_time",
+    "interval": 20,
+    "entity_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+            "effect": "minecraft:slowness",
+            "duration": 100,
+            "amplifier": 2,
+            "show_particles": false,
+            "show_icon": true
+        },
+        "effects": [
+            {
+                "effect": "minecraft:weakness",
+                "duration": 100,
+                "amplifier": 0,
+                "show_particles": true,
+                "show_icon": true
+            },
+            {
+                "effect": "minecraft:mining_fatigue",
+                "duration": 100,
+                "amplifier": 0,
+                "show_particles": true,
+                "show_icon": true
+            }
+        ]
+    },
+    "rising_action": {
+        "type": "origins:nothing"
+    },
+    "falling_action": {
+        "type": "origins:nothing"
+    }
+}

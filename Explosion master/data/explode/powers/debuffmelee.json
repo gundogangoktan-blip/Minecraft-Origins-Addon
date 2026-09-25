@@ -1,0 +1,10 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "attribute": "generic.attack_damage",
+        "operation": "multiply_total",
+        "value": -0.25
+    },
+    "name": "Weak Arms",
+    "description": "You deal %25 less damage with melee attacks."
+}

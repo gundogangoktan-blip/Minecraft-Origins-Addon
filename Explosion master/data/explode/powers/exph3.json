@@ -1,0 +1,19 @@
+{
+    "name": "Explosive Healing",
+    "description": "Block-destroying explosions made by you gives regen 3 for 4 seconds(experimental)",
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+            "effect": "minecraft:regeneration",
+            "amplifier": 2,
+            "duration": 80
+        }
+    },
+    "damage_condition": 
+        {
+            "type": "origins:name",
+            "name": "explosion"
+        }
+
+}

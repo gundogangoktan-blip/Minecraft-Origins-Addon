@@ -1,0 +1,68 @@
+{
+    "name": "§6§nArtifact of Flames",
+    "description": "§6§ Use a netherite pickaxe on a nether star to get the artifact of flames,The legendary Molten Fury",
+    "type": "origins:item_on_item",
+    "using_item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:netherite_pickaxe"
+        }
+    },
+    "on_item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:nether_star"
+        }
+    },
+    "using_item_action": {
+        "type": "origins:consume",
+        "amount": 1
+    },
+    "on_item_action": {
+        "type": "origins:consume",
+        "amount": 1
+    },
+    "result": {
+        "item": "minecraft:netherite_pickaxe",
+        "amount": 1
+    },
+    "result_item_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify",
+    "modifier": "flame:take"
+                },
+                {    
+                    "type": "origins:modify",
+    "modifier": "flame:take2"
+                },
+                {    
+                    "type": "origins:modify",
+    "modifier": "flame:bar"
+                },
+                {    
+                    "type": "origins:merge_nbt",
+    "nbt": "{display:{Name:'{\"text\":\"Molten Fury\",\"color\":\"gold\",\"bold\":true,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}',Lore:['{\"text\":\"Emity of Flames\",\"color\":\"gold\",\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}']},Unbreakable:1b,Enchantments:[{id:\"minecraft:sharpness\",lvl:10s},{id:\"minecraft:fire_aspect\",lvl:3s},{id:\"minecraft:efficiency\",lvl:6s},{id:\"minecraft:fortune\",lvl:4s}]}"
+                }
+            ]
+        },
+    
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/dead_bush.png",
+            "text": "§6§ This Artifact turns into ashes when used by what the flames deem unworthy"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/blaze_powder.png",
+            "text": "§6§ This artifact can increase your fuel bar over time when in mainhand"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/deepslate_redstone_ore.png",
+            "text": "§6§ Right click the star in the invntory while holding the pickaxe,Wont work in gm 1"
+        }
+    ]
+}

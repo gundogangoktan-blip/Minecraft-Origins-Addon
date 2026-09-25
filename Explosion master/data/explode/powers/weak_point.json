@@ -1,0 +1,17 @@
+{
+  "type": "origins:modify_damage_taken",
+  "damage_condition": {
+    "type": "origins:projectile"
+  },
+  "modifier": {
+    "value": 0.5,
+    "operation": "multiply_base"
+  }
+  
+
+  ,"name": "Prone to Projectiles",
+	"description": "You take 1.5X damage from arrows and thrown tridents."
+
+
+
+}  

@@ -1,0 +1,288 @@
+{
+	"name": "§6§nHeat Sensor",
+	"description": "§6§ On night you can sense living beings body heat.",
+	"type": "origins:multiple",
+	"nightfull_shadow": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": "<=",
+							"compare_to": 3
+						}
+					}
+				},
+
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": ">=",
+							"compare_to": 0
+						}
+					}
+				},
+				{
+					"type": "origins:distance",
+					"comparison": "<=",
+					"compare_to": 40
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:daytime",
+						"inverted": true
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:living"
+					}
+				}
+			]
+		}
+	},
+
+	"nightdimness": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": "<=",
+							"compare_to": 6
+						}
+					}
+				},
+
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": ">",
+							"compare_to": 3
+						}
+					}
+				},
+				{
+					"type": "origins:distance",
+					"comparison": "<=",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:daytime",
+						"inverted": true
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:living"
+					}
+				}
+
+
+			]
+		}
+	},
+	"nightdecent_light": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": "<=",
+							"compare_to": 10
+						}
+					}
+				},
+
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": ">",
+							"compare_to": 6
+						}
+					}
+				},
+				{
+					"type": "origins:distance",
+					"comparison": "<=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:daytime",
+						"inverted": true
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:living"
+					}
+				}
+			]
+		}
+	},
+
+	"nightbright": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": "<=",
+							"compare_to": 13
+						}
+					}
+				},
+
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": ">",
+							"compare_to": 10
+						}
+					}
+				},
+				{
+					"type": "origins:distance",
+					"comparison": "<=",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:daytime",
+						"inverted": true
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:living"
+					}
+				}
+			]
+		}
+	},
+
+
+	"nightblinding": {
+		"type": "origins:entity_glow",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": "<=",
+							"compare_to": 15
+						}
+					}
+				},
+
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:in_block",
+						"inverted": false,
+						"block_condition": {
+							"type": "origins:light_level",
+							"inverted": false,
+							"light_type": "block",
+							"comparison": ">",
+							"compare_to": 13
+						}
+					}
+				},
+				{
+					"type": "origins:distance",
+					"comparison": "<=",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:daytime",
+						"inverted": true
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:living"
+					}
+				}
+			]
+		}
+	},
+	"badges": [{
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/blaze_powder.png",
+            "text": "§6§ The closer they are to a heat source (light emitting block) harder they are to sense."
+        }
+    ]
+
+}

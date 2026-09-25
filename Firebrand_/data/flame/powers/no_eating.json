@@ -1,0 +1,80 @@
+{
+    "name":"§b§nCooked with Love",
+    "description":"§b§ You only eat coal and cooked things",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+            "type": "origins:food"
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_beef"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_chicken"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_cod"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_mutton"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_porkchop"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_rabbit"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:cooked_salmon"
+                }
+            },
+            {
+            "type": "origins:ingredient",
+            "inverted": true,
+            "ingredient": {
+                "item": "minecraft:dried_kelp"
+                }
+            }
+        ]
+    },
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/blaze_powder.png",
+        "text": "§b§ Eating coal will recharge your fuelbar.Eat while in mainhand"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "§b§ You can only eat coal when coal bar is not full.Coal bar reduces every 15 seconds"
+    }
+]
+}

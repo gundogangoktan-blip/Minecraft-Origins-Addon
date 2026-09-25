@@ -1,0 +1,26 @@
+{
+    "name": "§6§nReborn from Flames",
+    "description": "§6§ You regain health while you're on fire.",
+    "type": "origins:multiple",
+    "1":{
+
+    "condition": {
+        "type": "origins:on_fire"
+    },
+    "type": "origins:stacking_status_effect",
+    "min_stacks": 0,
+    "max_stacks": 1,
+    "duration_per_stack": 60,
+    "tick_rate": 20,
+    "effect": {
+        "effect": "minecraft:regeneration",
+        "duration": 100,
+        "amplifier": 0,
+        "show_particles": true,
+        "show_icon": true
+    }
+},
+"2": {
+    "type": "origins:disable_regen"
+}
+}

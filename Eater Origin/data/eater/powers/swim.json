@@ -1,0 +1,134 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "fall": {
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "type": "origins:modify_falling",
+        "velocity": 0.12,
+        "take_fall_damage": true
+    },
+    "water": {
+        "type": "origins:ignore_water"
+    },
+    "speed_0": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "water",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "depth_strider",
+                    "calculation": "sum",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:conditioned_attribute",
+        "interval": 5,
+        "modifier": {
+            "attribute": "generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.6
+        }
+    },
+    "speed_1": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "water",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "depth_strider",
+                    "calculation": "sum",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.4
+        },
+        "tick_rate": 20,
+        "update_health": false
+    },
+    "speed_2": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "water",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:enchantment",
+                    "enchantment": "depth_strider",
+                    "calculation": "sum",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.2
+        },
+        "tick_rate": 20,
+        "update_health": false
+    },
+    "fall_water": {
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "type": "origins:modify_falling",
+        "velocity": 0.04,
+        "take_fall_damage": true
+    },
+    "fall_damage_water": {
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "water",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:set_fall_distance",
+            "fall_distance": 0
+        },
+        "rising_action": {
+            "type": "origins:set_fall_distance",
+            "fall_distance": 0
+        },
+        "falling_action": {
+            "type": "origins:set_fall_distance",
+            "fall_distance": 0
+        }
+    }
+}

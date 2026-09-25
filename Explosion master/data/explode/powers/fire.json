@@ -1,0 +1,13 @@
+{
+    "name": "Fiery Blows",
+    "description": "All attacks are fire-based.",
+    "loading_priority": 1,
+    "type": "origins:modify_damage_dealt",
+    "damage_condition": {
+        "type": "origins:attacker"
+    },
+    "target_action": {
+        "type": "origins:set_on_fire",
+        "duration": 1
+    }
+}

@@ -1,0 +1,97 @@
+{
+	"name": "§d§nBomb throwing",
+	"description": "Instead of placing TNT you can throw it by left-clicking it.",
+	"type": "origins:multiple",
+
+	"throwing": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:tnt",
+		"cooldown": 5,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.attack"
+		},
+		"condition": {
+  			"type": "origins:equipped_item",
+  			"equipment_slot": "mainhand",
+  			"item_condition": {
+    				"type": "origins:ingredient",
+    				"ingredient": {
+        				"item": "minecraft:tnt"
+    				}
+  			}
+		}
+	},
+
+	"tnt_consume": {
+		"type": "origins:active_self",
+		"key": {
+        		"key": "key.attack"
+    		},
+		"condition": {
+  			"type": "origins:equipped_item",
+  			"equipment_slot": "mainhand",
+  			"item_condition": {
+    				"type": "origins:ingredient",
+    				"ingredient": {
+        				"item": "minecraft:tnt"
+    				}
+  			}
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:equipped_item_action",
+    					"equipment_slot": "mainhand",
+    					"action": {
+        					"type": "origins:consume",
+        					"amount": 1
+    					}
+				},
+				{
+					"type": "origins:execute_command",
+  					"command": "tag @e[type=minecraft:tnt,limit=1,sort=nearest] add throw",
+  					"permission_level": 4
+				}
+			]
+		},
+		"cooldown": 5,
+    		"hud_render": {
+        		"should_render": false
+    		}
+	},
+	
+	"tnt_dousing": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:command",
+    			"command": "execute if entity @e[type=minecraft:tnt,nbt={Fuse:0s},tag=throw]",
+    			"comparison": "==",
+    			"compare_to": 1
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+  					"command": "execute at @e[type=minecraft:tnt,nbt={Fuse:1s}] run tag @e[distance=..8,type=!minecraft:item] add doused",
+  					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+  					"command": "execute at @e[type=minecraft:tnt,nbt={Fuse:1s}] run power grant @e[distance=..8,type=!minecraft:item] arsonist:fire",
+  					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+  					"command": "execute at @e[type=minecraft:tnt,nbt={Fuse:1s}] run power grant @e[distance=..8,type=minecraft:villager] arsonist:reward_vill",
+  					"permission_level": 4
+				}
+			]
+		}
+	}
+}

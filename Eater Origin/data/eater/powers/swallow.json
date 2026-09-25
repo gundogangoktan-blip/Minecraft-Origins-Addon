@@ -1,0 +1,605 @@
+{
+
+    "name": "Swallow",
+    "description": "You can swallow some mobs",
+    "type": "origins:multiple",
+    "assfgd": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:creeper"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 14,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 1,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+
+    "assgtdd": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:enderman"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 16,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 4,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "ek": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:blaze"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 14,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 5,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "asflkskfj2": {
+        "badges": [{}],
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:skeleton"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 9,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 2,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "ek2": {
+        "badges": [{}],
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:wither_skeleton"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 9,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 6,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "alksj": {
+        "badges": [{}],
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:spider"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 17,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 3,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "alksj2": {
+        "badges": [{}],
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:squid"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 17,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 7,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "alksj3": {
+        "badges": [{}],
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1000,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:resource",
+                    "compare_to": 0,
+                    "comparison": "==",
+                    "resource": "eater:swallow_hasfood"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 3,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:glow_squid"
+                            }]
+                        }
+                    }
+
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 17,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 3,
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "any",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:heal",
+                            "amount": -500
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "change": 8,
+                            "operation": "set",
+                            "resource": "eater:swallow_hasfood"
+                        }
+                    }
+                ]
+            },
+            "command_along_ray": "particle minecraft:cloud",
+            "command_step": 0.25,
+            "command_along_ray_only_on_hit": true
+
+        }
+    },
+    "hasfood": {
+        "type": "origins:resource",
+        "start_value": 0,
+        "max":8,
+        "min": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    }
+}

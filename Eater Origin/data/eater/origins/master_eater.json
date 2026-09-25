@@ -1,0 +1,31 @@
+{
+	"powers": [
+		"eater:copboost",
+		"eater:emboost",
+		"eater:explosion",
+		"eater:featherboost",
+		"eater:goldboost",
+		"eater:ironboost",
+		"eater:obsboost",
+		"eater:redsboost",
+		"eater:sugaboost",
+		"eater:blazeboost",
+		"eater:effectnt",
+	    "eater:glowstick",
+	    "eater:eyeboost",
+	    "eater:nethersboost",
+	    "eater:swallow",
+	    "eater:spit",
+	    "eater:sink",
+	    "eater:noborc",
+	    "eater:swim",
+	    "eater:nofood",
+	    "eater:loweregen",
+	    "eater:ray"
+	],
+	"icon": "minecraft:cooked_chicken",
+	"order": 12,
+	"impact": 3,
+	"name": "Master Eater",
+	"description": "You have mastered the way of eating"
+}

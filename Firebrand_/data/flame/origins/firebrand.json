@@ -1,0 +1,29 @@
+{
+	"powers": [
+		"flame:wrath",
+		"flame:apply",
+		"flame:fire",
+		"flame:firedash",
+		"flame:heat",
+		"flame:firehealth",
+		"flame:flame",
+		"flame:smelt_offhand",
+		"flame:sense",
+		"flame:artifact",
+		"flame:particle",
+		"flame:no_eating",
+		"flame:charred",
+		"flame:flaming",
+		"flame:no",
+		"flame:calories",
+		"flame:damage",
+		"flame:worthy",
+		"flame:coal"
+		
+	],
+	"icon": "minecraft:deepslate_redstone_ore",
+	"order": 10,
+	"impact": 2,
+	"name": "§6§ Firebrand",
+	"description": "§6§ You have mastered the way of flames..."
+}

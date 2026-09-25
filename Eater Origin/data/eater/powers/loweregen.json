@@ -1,0 +1,9 @@
+{
+    "name":"Exhausted Metablosim",
+    "description":"All that power goes to your belly to absorb materials even mobs! All your healing has been lowered by %30",
+    "type": "origins:modify_healing",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.30
+    }
+}
