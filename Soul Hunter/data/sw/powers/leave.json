@@ -1,0 +1,14 @@
+{
+    "hidden":true,
+    "type": "origins:action_on_item_use",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "team leave @s"
+    },
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "origins:orb_of_origin"
+        }
+    }
+}

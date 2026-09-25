@@ -1,0 +1,208 @@
+{
+    "name": "Boon of the Spider",
+    "description": "You dont take most of the enviromental damage and cobweb cant slow you down",
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "cactus"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "2": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "cactus.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "3": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "freeze"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "4": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "freeze.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "5": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "hotFloor"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "6": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "hotFloor.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "7": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "inWall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "8": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "inWall.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "9": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "sting"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "10": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "sting.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "11": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "sweetBerryBush"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "12": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "sweetBerryBush.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "13": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fallingBlock"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "14": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fallingBlock.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "15": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.5
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:in_block_anywhere",
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:cobweb"
+            }
+        }
+    },
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 spider souls"
+    }]
+}

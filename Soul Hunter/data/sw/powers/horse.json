@@ -1,0 +1,70 @@
+{
+    "hidden": false,
+    "name": "Boon of the Skeleton",
+    "description": "Summon a skeleton horse with 2 bone blocks in your offhand",
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">",
+        "compare_to": 1
+    },
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "offhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:and",
+                        "conditions": [{
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:bone_block"
+                            }
+                        }]
+                    },
+                    {
+                        "type": "origins:amount",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                ]
+            }
+        },
+        "if_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 2
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon minecraft:skeleton_horse ^ ^ ^ {DeathLootTable:\"empty\",Tame:1b,SaddleItem:{id:saddle,Count:0},Attributes:[{Name:generic.movement_speed,Base:0.33}],Team:hunter,HandItems:[{id:diamond_sword,Count:1}],HandDropChances:[0.00f],ArmorItems:[{id:netherite_boots,Count:1},{id:netherite_leggings,Count:1},{id:netherite_chestplate,Count:1},{id:netherite_helmet,Count:1}],ArmorDropChances:[0.00f,0.00f,0.00f,0.00f]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:smoke ~ ~.3 ~ 0.1 0.1 0.1 0.3 1100 force"
+                }
+            ]
+        },
+        "else_action": {
+            "type": "origins:nothing"
+        }
+    },
+    "cooldown": 600,
+    "hud_render": {
+    "should_render": false
+  },
+    "key": "key.loadToolbarActivator",
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 skeleton souls"
+    }]
+}

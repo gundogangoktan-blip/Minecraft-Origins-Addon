@@ -1,0 +1,17 @@
+{
+    "type": "origins:action_over_time",
+    "name": "Be Cautious!",
+    "description": "Some neutral mobs will act aggressive towards you! Wether it is because they are aggressive fans, because you are a criminal or maybe because they know you will hit everything that moves, you don't know.",
+    "hidden": true,
+    "interval": 100,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute as @s at @s run data modify entity @e[type=minecraft:zombified_piglin,limit=1,sort=random,distance=..32] AngryAt set from entity @s UUID"
+            }
+        ]
+    }
+}

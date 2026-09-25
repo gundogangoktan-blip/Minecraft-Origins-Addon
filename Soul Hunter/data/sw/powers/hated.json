@@ -1,0 +1,90 @@
+{
+    "type": "origins:multiple",
+    "no_tame1": {
+        "type": "origins:prevent_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar {\"text\": \"I'm all alone on my path\", \"color\": \"aqua\"}"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:wolf"
+            }
+        }
+    },
+    "nt2": {
+        "type": "origins:prevent_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar {\"text\": \"I'm all alone on my path\", \"color\": \"aqua\"}"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:ocelot"
+            }
+        }
+    },
+    "nt3": {
+        "type": "origins:prevent_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar {\"text\": \"I'm all alone on my path\", \"color\": \"aqua\"}"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:fox"
+            }
+        }
+    },
+    "nt4": {
+        "type": "origins:prevent_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar {\"text\": \"I'm all alone on my path\", \"color\": \"aqua\"}"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:horse"
+            }
+        }
+    },
+    "nt5": {
+        "type": "origins:prevent_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar {\"text\": \"I'm all alone on my path\", \"color\": \"aqua\"}"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:cat"
+            }
+        }
+    },
+    "name": "§6§nHated",
+    "description": "You cant tame anything"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "§6§nWeakened",
+    "description": "To get your your powers back you have to absorb some souls,all in the correct order",
+    "type": "origins:resource",
+    "min": 0,
+    "max": 5,
+    "start_value": 0,
+    "badges":[
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/copper_ingot.png",
+        "text": "Use 5 spider souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/iron_ingot.png",
+        "text": "Use 5 skeleton souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/gold_ingot.png",
+        "text": "Use 5 blaze souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/netherite_ingot.png",
+        "text": "Use 5 enderman souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/nether_star.png",
+        "text": "Use 5 wither souls"
+    },
+    {
+        "type": "origins:keybind",
+        "sprite": "minecraft:textures/block/beacon.png",
+        "text": "Offhand-Load hotbar Activator"
+    }
+]
+
+}

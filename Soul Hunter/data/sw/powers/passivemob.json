@@ -1,0 +1,107 @@
+{
+    "name": "Anchored Souls",
+    "description": "All zombies are passive towards you and will fight with you",
+    "hidden": false,
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "team add hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team leave hunter2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter color dark_gray "
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter prefix [{\"text\":\"[\",\"color\":\"gray\"},{\"text\":\"Soulbound\",\"color\":\"aqua\"},{\"text\":\"] \",\"color\":\"gray\"}]]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter friendlyFire true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:zombie]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:zombified_piglin]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:zombie_villager]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:drowned]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:husk]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:zoglin]"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "sw:callback_toggle",
+            "inverted": true
+        }
+    },
+    "2": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "team add hunter2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team leave hunter2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter2 color dark_gray "
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter2 prefix [{\"text\":\"[\",\"color\":\"gray\"},{\"text\":\"Soulbound\",\"color\":\"aqua\"},{\"text\":\"] \",\"color\":\"gray\"}]]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter2 collisionRule pushOtherTeams"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter2 friendlyFire true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter2 @s"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "sw:callback_toggle"
+        }
+    }
+}

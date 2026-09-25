@@ -1,0 +1,64 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "invzom": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:zombie"
+            }
+        }
+    },
+    "invzom2": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:husk"
+            }
+        }
+    },
+    "invzom3": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:drowned"
+            }
+        }
+    },
+    "invzom4": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:zombie_villager"
+            }
+        }
+    },
+    "invzom5": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:zombified_piglin"
+            }
+        }
+    },
+    "invzom6": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:zoglin"
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "type": "origins:modify_attribute",
+    "name": "§6§nFull of life",
+    "description": "When on grass,dirt path or farmland you deal %25 less damage",
+    "attribute": "minecraft:generic.attack_damage",
+    "modifier": {
+        "operation": "multiply_base_multiplicative",
+        "value": -0.25
+    },
+    "tick_rate": 1,
+    "condition": {
+        "type": "origins:on_block",
+        "block_condition": {
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:block",
+                    "block": "minecraft:grass_block"
+                },
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:dirt_path"
+                },
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:farmland"
+                }
+            ]
+        }
+
+    }
+}

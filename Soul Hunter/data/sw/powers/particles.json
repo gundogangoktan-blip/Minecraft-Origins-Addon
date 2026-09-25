@@ -1,0 +1,12 @@
+{
+    "type": "origins:particle",
+	"name": "Souls Resonante Within",
+	"description": "Souls resonate around you when in the nether",
+    "particle": "minecraft:soul",
+    "frequency": 10,
+    "condition": {
+    "type": "origins:dimension",
+    "dimension": "minecraft:the_nether",
+    "inverted": false
+}
+}

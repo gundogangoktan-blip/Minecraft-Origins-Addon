@@ -1,0 +1,242 @@
+{
+    "name": "Up To Their Souls",
+    "description": "You have a %5 chance to obtain spawn eggs of some mobs when you kill them and when you kill piglins they might drop some useful items",
+    "type": "origins:multiple",
+    "piglin": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:piglin"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:chance",
+                    "chance": 0.10,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:ender_pearl\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.10,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:obsidian\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.15,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:gold_ingot\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.10,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:blaze_rod\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.25,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:porkchop\",Count:4b}}"
+                    }
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "blaze": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:blaze"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:blaze_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "skeleton": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:skeleton"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:skeleton_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "spider": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:spider"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:spider_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "creeper": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:creeper"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:creeper_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "enderman": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:enderman"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:enderman_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "witch": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:witch"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:witch_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "magmacube": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:magma_cube"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:magma_cube_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "phantom": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:phantom"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:phantom_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    },
+    "slime": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:slime"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:slime_spawn_egg\",Count:1b}}"
+                }
+            }]
+        },
+        "cooldown": 1
+    }
+}

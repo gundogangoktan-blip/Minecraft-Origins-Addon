@@ -1,0 +1,12 @@
+{
+    "hidden":true,
+    "type": "origins:particle",
+	"name": "Souls Resonante Within",
+	"description": "Souls resonate around you when in the nether",
+    "particle": "minecraft:soul_fire_flame",
+    "frequency": 5,
+    "condition": {
+    "type": "origins:power_active",
+    "power": "sw:toggle"
+}
+}

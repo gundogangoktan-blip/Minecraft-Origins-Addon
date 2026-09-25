@@ -1,0 +1,14 @@
+{
+    "type": "origins:modify_player_spawn",
+    "dimension": "minecraft:the_nether",
+    "biome": "minecraft:soul_sand_valley",
+    "spawn_strategy": "center",
+    "name": "§6§nThe Fallen",
+    "description": "You spawn in the soul sand valley until you absorb the wither souls",
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": "<",
+        "compare_to": 4
+    }
+  }

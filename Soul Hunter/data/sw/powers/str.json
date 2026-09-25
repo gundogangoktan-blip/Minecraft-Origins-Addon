@@ -1,0 +1,142 @@
+{
+    "name": "Boon of the Enderman",
+    "description": "You can fully heal and boost the anchored for 20 seconds-Primary",
+    "type": "origins:action_on_hit",
+    "bientity_action": {
+        "type": "origins:and",
+        "actions": [{
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:apply_effect",
+                    "effects": [{
+                            "effect": "minecraft:speed",
+                            "duration": 400,
+                            "amplifier": 2,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:strength",
+                            "duration": 400,
+                            "amplifier": 1,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:instant_damage",
+                            "duration": 20,
+                            "amplifier": 10,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:weakness",
+                            "duration": 400,
+                            "amplifier": 0,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:resistance",
+                            "duration": 400,
+                            "amplifier": 1,
+                            "show_particles": true,
+                            "show_icon": true
+                        }
+
+                    ]
+                }
+            },
+            {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.fox.bite",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            }
+        ]
+    },
+    "bientity_condition": {
+        "type": "origins:or",
+        "conditions": [{
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:husk"
+                }
+
+            },
+            {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:zombie"
+                }
+            },
+            {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:zombified_piglin"
+                }
+            },
+            {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:drowned"
+                }
+            },
+            {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:zombie_villager"
+                }
+            },
+            {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:skeleton_horse"
+                }
+            },
+            {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:zoglin"
+                }
+            }
+        ]
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [{
+                "type": "origins:power_active",
+                "power": "sw:toggle"
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": ">",
+                "compare_to": 3
+            }
+        ]
+    },
+    "cooldown": 600,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+        "bar_index": 22
+    },
+    "badges":[
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 endermen souls"
+    }
+]
+}

@@ -1,0 +1,12 @@
+{
+	"name":"§6§nCursed",
+	"description":"Messing with the souls made you cursed.You cant use enchanting tables",
+  "type": "origins:multiple",
+  "enchant": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:enchanting_table"
+    }
+  }
+}

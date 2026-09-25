@@ -1,0 +1,22 @@
+{
+	"name": "Pure Soul",
+	"description": "You are immune to hunger,poison,insant damage and heal,invisibility,wither,slowness,slow falling,darkness,speed,resistance,jump boost,nausea,dolphins grace and conduit power",
+	"type": "origins:effect_immunity",
+	"effects": [
+		"minecraft:speed",
+		"minecraft:instant_damage",
+		"minecraft:jump_boost",
+		"minecraft:nausea",
+		"minecraft:invisibility",
+		"minecraft:hunger",
+		"minecraft:poison",
+		"minecraft:health_boost",
+		"minecraft:slow_falling",
+		"minecraft:conduit_power",
+		"minecraft:dolphins_grace",
+		"minecraft:wither",
+		"minecraft:slowness",
+		"minecraft:darkness",
+		"minecraft:resistance"
+	]
+}

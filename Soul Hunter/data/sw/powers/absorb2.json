@@ -1,0 +1,62 @@
+{
+    "hidden":true,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": "==",
+        "compare_to": 1
+    },
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "offhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:and",
+                        "conditions": [{
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:skeleton_spawn_egg"
+                            }
+                        }]
+                    },
+                    {
+                        "type": "origins:amount",
+                        "comparison": "==",
+                        "compare_to": 5
+                    }
+                ]
+            }
+        },
+        "if_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 5
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "sw:upgrade",
+                    "change": 1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:firework ~ ~.3 ~ 0.1 0.1 0.1 0.3 110 force"
+                }
+            ]
+        },
+        "else_action": {
+            "type": "origins:nothing"
+        }
+    },
+    "cooldown": 100,
+    "key": "key.loadToolbarActivator"
+}

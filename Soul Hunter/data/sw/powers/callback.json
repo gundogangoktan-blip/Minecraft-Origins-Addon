@@ -1,0 +1,48 @@
+{
+    "hidden": false,
+    "name": "Gather the Anchored",
+    "description": "You can gather the anchored and make them follow you",
+    "type": "origins:multiple",
+    "callback": {
+        "type": "origins:action_over_time",
+        "interval": 100,
+        "bientity_action": {
+            "type": "origins:add_velocity",
+            "z": -2
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [{
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:zombie"
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:husk"
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:drowned"
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:zombified_piglin"
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:zoglin"
+                    }
+                ]
+            }
+        }
+    },
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "key.saveToolbarActivator"
+        }
+    }
+}

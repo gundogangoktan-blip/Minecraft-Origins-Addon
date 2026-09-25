@@ -1,0 +1,101 @@
+{
+    "name": "Craft Gapple",
+    "description": "You can craft items needed for gapples and gapples themselves with different ingredients",
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "gapple",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "#/#",
+                "###"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:lapis_lazuli"
+                },
+                "/": {
+                    "item": "minecraft:apple"
+                }
+            },
+            "result": {
+                "item": "minecraft:golden_apple",
+                "count": 1
+            }
+        }
+    },
+    "2": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "gapple2",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "#/#",
+                "###"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:amethyst_shard"
+                },
+                "/": {
+                    "item": "minecraft:apple"
+                }
+            },
+            "result": {
+                "item": "minecraft:golden_apple",
+                "count": 1
+            }
+        }
+    },
+    "3": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "apple",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "#/#",
+                "###"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:oak_sapling"
+                },
+                "/": {
+                    "item": "minecraft:bone_block"
+                }
+            },
+            "result": {
+                "item": "minecraft:apple",
+                "count": 4
+            }
+        }
+    },
+    "4": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "budding",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "#/#",
+                "###"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:amethyst_shard"
+                },
+                "/": {
+                    "item": "minecraft:amethyst_block"
+                }
+            },
+            "result": {
+                "item": "minecraft:budding_amethyst",
+                "count": 2
+            }
+        }
+    }
+}

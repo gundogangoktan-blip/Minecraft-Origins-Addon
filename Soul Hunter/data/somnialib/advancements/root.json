@@ -1,0 +1,25 @@
+{
+    "display": {
+        "title": {
+            "text": "Gundogans's Ingeniosity",
+            "color": "light_purple",
+            "strikethrough": false
+        },
+        "description": {
+            "text": "§fThis server uses origins designed by GGundogan."
+        },
+        "icon": {
+            "item": "minecraft:phantom_membrane"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/end.png"
+    },
+    "criteria": {
+        "block": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

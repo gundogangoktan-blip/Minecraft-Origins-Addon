@@ -1,0 +1,29 @@
+{
+    "name": "Seal the Soul",
+    "description": "You are able to seal the soul of piglins and hoglins and turn them into a zombie inside their dead body",
+    "type": "origins:target_action_on_hit",
+    "cooldown": 0,
+    "entity_action" :{
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "summon zombified_piglin"
+            }
+        ]
+    },
+    "target_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:piglin"
+            },
+            {
+                "type": "origins:health",
+                "comparison": "<=",
+                "compare_to": 0
+            }
+        ]
+    }
+}
