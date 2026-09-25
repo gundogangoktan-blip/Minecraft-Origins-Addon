@@ -1,0 +1,30 @@
+{
+    "name": "§a§nBoost the Anchored",
+    "description": "You can fully heal and boost the anchored for 20 seconds by hitting them",
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+        "key": "key.origins.primary_active"
+    },
+    "badges":[
+        {
+    "type": "origins:keybind",
+    "sprite": "origins:textures/gui/badge/toggle.png",
+    "text": "Toggle with %s!"
+},
+
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/golden_apple.png",
+        "text": "You can use this power to weaken zombie villagers,cure them with a golden apple while they are weakened"
+    }
+],
+"condition": 
+    {
+        "type": "origins:resource",
+        "resource": "sw:switchpower_res",
+        "comparison": "==",
+        "compare_to": 1
+    }
+
+}

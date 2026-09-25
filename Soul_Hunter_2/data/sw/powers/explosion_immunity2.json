@@ -1,0 +1,115 @@
+{
+    "name": "§b§nBoon of the Creeper",
+    "description": "Explosions,Lightning deal half the damage and you get regeneration when you are near jukeboxes that are active",
+    "type":"origins:multiple",
+    "1":{
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+        "value": -0.50,
+        "operation": "multiply_base"
+    },
+    "damage_condition": {
+        "type": "origins:or",
+        "conditions": [{
+                "type": "origins:name",
+                "name": "explosion"
+            },
+            {
+                "type": "origins:explosive"
+            },
+            {
+                "type": "origins:name",
+                "name": "explosion.player"
+            },
+            {
+                "type": "origins:name",
+                "name": "badRespawnPoint"
+            },
+            {
+                "type": "origins:name",
+                "name": "fireworks.item"
+            },
+            {
+                "type": "origins:name",
+                "name": "fireworks.player"
+            },
+            {
+                "type": "origins:name",
+                "name": "fireworks"
+            },
+            {
+                "type": "origins:name",
+                "name": "fireball"
+            },
+            {
+                "type": "origins:name",
+                "name": "fireball.item"
+            },
+            {
+                "type": "origins:name",
+                "name": "lightningBolt"
+            },
+            {
+                "type": "origins:name",
+                "name": "lightningBolt.player"
+            }
+        ]
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">",
+        "compare_to": 2
+    }
+},
+"2": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:apply_effect",
+		"effect": {
+			"effect": "minecraft:regeneration",
+			"duration": 50,
+			"show_particles": false
+        }
+    },
+    "interval": 50,
+	"condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+		"type": "origins:block_in_radius",
+		"block_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:block",
+					"block": "minecraft:jukebox"
+				},
+				{
+					"type": "origins:block_state",
+					"property": "has_record",
+					"value": true
+				}
+			]
+		},
+		"radius": 35,
+		"shape": "sphere",
+		"comparison": ">=",
+		"compare_to": 1
+    },
+    {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">",
+        "compare_to": 2
+    }
+    ]
+	}
+
+},
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 creeper souls"
+    }]
+}

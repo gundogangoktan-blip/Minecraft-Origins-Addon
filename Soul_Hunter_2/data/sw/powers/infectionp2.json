@@ -1,0 +1,35 @@
+{
+    "hidden":true,
+    "name": "Is",
+    "description": "You",
+    "type": "origins:target_action_on_hit",
+    "cooldown": 0,
+    "entity_action" :{
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:chance",
+            "action": {
+            "type": "origins:execute_command",
+            "command": "summon zombified_piglin ^ ^1 ^1 {Team:\"hunter\",Health:50f,CustomName:'{\"text\":\"Soul of a Piglin\",\"color\":\"red\",\"italic\":false}',HandItems:[{id:\"minecraft:golden_axe\",Count:1b},{}]}"
+            },
+            "chance": 0.1
+                
+            }
+        ]
+    },
+    "target_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:piglin_brute"
+            },
+            {
+                "type": "origins:health",
+                "comparison": "<=",
+                "compare_to": 0
+            }
+        ]
+    }
+}

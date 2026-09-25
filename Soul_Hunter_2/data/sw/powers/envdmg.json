@@ -1,0 +1,120 @@
+{
+    "name": "§b§nBoon of the Spider",
+    "description": "Cobwebs cant slow you down and you have realistic climbing power",
+    "type": "origins:multiple",
+
+    "no_slowdown": {
+        "type": "origins:phasing",
+        "blacklist": false,
+        "render_type": "none",
+        "block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:cobweb"
+        },
+        "condition": {
+            "type":"origins:and",
+            "conditions":[
+                {
+            "type": "origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": ">",
+            "compare_to": 0
+                }  
+            ]
+        }
+    },
+    "1": {  
+            "type": "origins:modify_falling",
+            "velocity": 0.0001,
+            "take_fall_damage": false,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type":"origins:or",
+                        "conditions":[
+                            {
+                                "type": "origins:block_collision",
+                                "offset_x": 0.01,
+                                "offset_z": 0.01,
+                                "offset_y": 0
+                            },
+                            {
+                                "type": "origins:block_collision",
+                                "offset_x": -0.01,
+                                "offset_z": -0.01,
+                                "offset_y": 0
+                            }
+                        ]
+                    },
+                    {
+                        "type":"origins:sneaking"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "sw:upgrade",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                ]
+                }
+    },
+    "2": {
+            "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:add_velocity",
+                "y": 0.6
+            },
+            "cooldown": 20,
+            "hud_render": {
+                "should_render": false
+            },
+        "key": {
+            "key": "key.jump",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:or",
+                    "conditions":[
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0.01,
+                            "offset_z": 0.01,
+                            "offset_y": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": -0.01,
+                            "offset_z": -0.01,
+                            "offset_y": 0
+                        }
+                    ]
+                },
+                {
+                    "type":"origins:sneaking"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+            }
+    },
+    "badges": [
+        {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 spider souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/spider_eye.png",
+        "text": "You can use the climb when sneak jumping while colliding with a wall"
+    }
+]
+}

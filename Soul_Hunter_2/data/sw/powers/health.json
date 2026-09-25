@@ -1,0 +1,18 @@
+{
+    "type": "origins:conditioned_attribute",
+    "name": "§6§nWeaker Body",
+    "description": "You have 7 hearts instead of 10 until you absorb the Wither's soul",
+    "modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "value": -6,
+        "operation": "addition",
+        "update_health": true
+    },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": "<",
+        "compare_to": 5
+    }
+}

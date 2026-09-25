@@ -1,0 +1,358 @@
+{
+    "name": "§a§nAbility Switch",
+    "description": "You can switch your active abilities with the Load Hotbar Activator and Save Hotbar Activator keys.",
+    "type": "origins:multiple",
+    "res": {
+        "type": "origins:resource",
+        "min": 1,
+        "max": 5,
+        "start_value": 1,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 15
+        }
+        
+    },
+    "switch_forward": {
+        "type": "origins:active_self",
+        "cooldown": 1,
+        "key": {
+            "key": "key.saveToolbarActivator"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_res",
+                        "comparison": "<",
+                        "compare_to": 5
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_res",
+                        "change": 1
+                    },
+                    "else_action": {
+                        "type": "origins:set_resource",
+                        "resource": "*:*_res",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"I will command the anchored\",\"color\":\"aqua\",\"italic\":true}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"I will boost the anchored\",\"color\":\"aqua\",\"italic\":true}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I will consume souls\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            
+                        },
+                        {
+                            "condition": {
+                                "type":"origins:and",
+                                "conditions": [
+                                    {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 5
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "sw:upgrade",
+                                        "comparison": ">",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"I will summon a skeleton horse\",\"color\":\"aqua\",\"italic\":true}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type":"origins:and",
+                                "conditions": [
+                                    {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 5
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "sw:upgrade",
+                                        "comparison": "<=",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"I did not unlock this ability\",\"color\":\"aqua\",\"italic\":true}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type":"origins:and",
+                                "conditions": [
+                                    {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 3
+                                    },
+                                    
+                                    {
+                                            "type": "origins:power_active",
+                                            "inverted": true,
+                                            "power": "sw:callback2_toggle"
+                                    }
+                                    
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"I will call the anchored back\",\"color\":\"aqua\",\"italic\":true}"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type":"origins:and",
+                                "conditions": [
+                                    {
+                                "type": "origins:resource",
+                                "resource": "*:*_res",
+                                "comparison": "==",
+                                "compare_to": 3
+                                    },
+                                    {
+                                            "type": "origins:power_active",
+                                            "power": "sw:callback2_toggle"
+                                    }
+                                    
+                                ]
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"text\":\"I will stop calling the anchored back\",\"color\":\"aqua\",\"italic\":true}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "switch_backward": {
+        "type": "origins:active_self",
+        "cooldown": 1,
+        "key": {
+            "key": "key.loadToolbarActivator"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_res",
+                        "comparison": ">",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_res",
+                        "change": -1
+                    },
+                    "else_action": {
+                        "type": "origins:set_resource",
+                        "resource": "*:*_res",
+                        "value": 5
+                    }
+                },
+                {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I will command the anchored\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                },
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I will boost the anchored\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 4
+                                },
+                                
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar {\"text\":\"I will consume souls\",\"color\":\"aqua\",\"italic\":true}"
+                                    }
+                                
+                            },
+                            {
+                                "condition": {
+                                    "type":"origins:and",
+                                    "conditions": [
+                                        {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 5
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "sw:upgrade",
+                                            "comparison": ">",
+                                            "compare_to": 1
+                                        }
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I will summon a skeleton horse\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type":"origins:and",
+                                    "conditions": [
+                                        {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 5
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "sw:upgrade",
+                                            "comparison": "<=",
+                                            "compare_to": 1
+                                        }
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I did not unlock this ability\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type":"origins:and",
+                                    "conditions": [
+                                        {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                        },
+                                        
+                                        {
+                                                "type": "origins:power_active",
+                                                "inverted": true,
+                                                "power": "sw:callback2_toggle"
+                                        }
+                                        
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I will call the anchored back\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type":"origins:and",
+                                    "conditions": [
+                                        {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_res",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                        },
+                                        {
+                                                "type": "origins:power_active",
+                                                "power": "sw:callback2_toggle"
+                                        }
+                                        
+                                    ]
+                                },
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar {\"text\":\"I will stop calling the anchored back\",\"color\":\"aqua\",\"italic\":true}"
+                                }
+                            }
+                        ]
+                    }
+                
+                    
+                
+            ]
+        }
+    }
+   
+}

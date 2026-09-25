@@ -1,0 +1,5 @@
+{
+    "name": "§a§nSoul Hex",
+    "description": "When you attack or command the anchored to attack a non anchored zombie you have a chance of hexing their soul making them attack theirselves",
+    "type":"origins:simple"
+}

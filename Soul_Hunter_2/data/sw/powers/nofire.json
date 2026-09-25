@@ -1,0 +1,126 @@
+{
+    "name": "§b§nBoon of the Blaze",
+    "description": "Fire cant harm you andyou can withstand lava for a very limited time",
+    "type":"origins:multiple",
+    "1":{
+    "type": "origins:invulnerability",
+    "damage_condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+            "type": "origins:name",
+            "name": "hotFloor"
+        },
+        {
+            "type": "origins:name",
+            "name": "hotFloor.player"
+        },
+        {
+            "type": "origins:name",
+            "name": "inFire"
+        },
+        {
+            "type": "origins:name",
+            "name": "onFire"
+        },
+        {
+            "type": "origins:name",
+            "name": "onFire.player"
+        },
+        {
+            "type": "origins:name",
+            "name": "fireball"
+        },
+        {
+            "type": "origins:name",
+            "name": "fireball.item"
+        },
+        {
+            "type": "origins:name",
+            "name": "inFire.player"
+        }]
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">",
+        "compare_to": 3
+    }
+},
+"2":{
+    "type": "origins:invulnerability",
+    "damage_condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+            "type": "origins:name",
+            "name": "lava"
+            },
+            {
+                "type": "origins:name",
+                "name": "lava.player"
+            }
+    ]
+    },
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">",
+        "compare_to": 3
+            },
+            {   
+            "type":"origins:resource",
+            "resource":"*:*_bar",
+            "comparison": "!=",
+            "compare_to": 10
+            }
+        ]
+    }
+},
+"bar":{
+    "type":"origins:resource",
+    "max": 10,
+    "min": 0
+},
+"increase":{
+    "type":"origins:action_over_time",
+    "entity_action": {
+        "type":"origins:change_resource",
+        "resource":"*:*_bar",
+        "change": 1
+    },
+    "interval": 10,
+    "condition": {
+        "type": "origins:fluid_height",
+        "inverted":true,
+        "fluid": "minecraft:lava",
+        "comparison": "==",
+        "compare_to": 0
+        }
+},
+"decrease":{
+    "type":"origins:action_over_time",
+    "entity_action": {
+        "type":"origins:change_resource",
+        "resource":"*:*_bar",
+        "change": -1
+    },
+    "interval": 10,
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:lava",
+        "comparison": "==",
+        "compare_to": 0
+        }
+},
+    "badges":[
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 blaze souls"
+    }
+]
+}

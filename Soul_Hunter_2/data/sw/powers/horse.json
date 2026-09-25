@@ -1,0 +1,167 @@
+{
+    "hidden": false,
+    "name": "§b§nBoon of the Skeleton",
+    "description": "Summon a reinforced skeleton horse with 5 bone blocks in your offhand",
+    "type":"origins:multiple",
+    "cooldown":
+    {
+        "type": "origins:cooldown",
+        "cooldown": 3600,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 5
+        }
+        
+    },
+    "1":{
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">",
+        "compare_to": 1
+            },
+            {
+                "type": "origins:resource",
+            "resource": "sw:switchpower_res",
+            "comparison": "==",
+            "compare_to": 5
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:horse_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        ]
+    },
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "offhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:and",
+                        "conditions": [{
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:bone_block"
+                            }
+                        }]
+                    },
+                    {
+                        "type": "origins:amount",
+                        "comparison": ">=",
+                        "compare_to": 5
+                    }
+                ]
+            }
+        },
+        "if_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "offhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 5
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon skeleton_horse ~ ~ ~ {Silent:1b,Invulnerable:0b,cardinal_components: {\"apoli:powers\": {Powers: [{Type: \"sw:riding\",Sources: [\"apoli:command\"], Data: 0b},{Type: \"sw:soul_speed\",Sources: [\"apoli:command\"], Data: 0b}]}},CustomNameVisible:0b,DeathTime:0.1,DeathLootTable:\"empty\",Team:\"hunter\",NoAI:0b,CanPickUpLoot:0b,Health:20f,Tame:1b,SkeletonTrap:0b,CustomName:'{\"text\":\"Gift of the Skeletons\",\"color\":\"aqua\"bold\":true}',ActiveEffects:[{Id:12,Amplifier:1b,Duration:19999980,ShowParticles:0b}],Attributes:[{Name:generic.max_health,Base:20},{Name:generic.knockback_resistance,Base:1},{Name:generic.movement_speed,Base:0.31},{Name:generic.armor,Base:20},{Name:generic.armor_toughness,Base:10},{Name:horse.jump_strength,Base:1}],SaddleItem:{}}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:smoke ~ ~.3 ~ 0.1 0.1 0.1 0.3 1100 force"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:horse_cooldown"
+                }
+            ]
+        },
+        "else_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"I do not have enough bones in my offhand\",\"color\":\"aqua\",\"italic\":true}"
+        }
+    },
+    "cooldown": 0,
+    "hud_render": {
+    "should_render": false
+  },
+    "key": "key.origins.primary_active"
+},
+"2":
+{
+    "type": "origins:action_on_block_use",
+    "block_action": {
+        "type": "origins:chance",
+    "action": {
+        
+    },
+    "chance": 1
+    },
+    "block_condition": {
+       "type":"origins:or",
+       "conditions": [
+        {
+            "type":"origins:and",
+            "conditions":[
+                {
+            "type": "origins:in_tag",
+            "tag": "minecraft:crops"
+                }
+            ]
+        },
+        {
+            "type": "origins:in_tag",
+            "tag": "minecraft:saplings"
+        },
+        {
+            "type":"origins:block",
+            "block": "minecraft:grass_block"
+        },
+        {
+            "type":"origins:block",
+            "block": "minecraft:bamboo"
+        },
+        {
+            "type":"origins:block",
+            "block": "minecraft:bamboo_sapling"
+        }
+
+       ]
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "sw:upgrade",
+        "comparison": ">=",
+        "compare_to": 2
+    }
+},
+    "badges": [
+        {
+    "type": "origins:keybind",
+    "sprite": "origins:textures/gui/badge/active.png",
+    "text": "Trigger with %s in gear 5!"
+},
+        {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 skeleton souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/echo_shard.png",
+        "text": "Only Soul hunters and soul contract users can use this horse"
+    }
+    
+]
+}

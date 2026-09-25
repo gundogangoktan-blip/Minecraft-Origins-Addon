@@ -1,0 +1,486 @@
+{
+    "name": "§a§nUp To Their Souls",
+    "description": "You have a %5 chance to obtain spawn eggs of some mobs when you kill them and when you kill piglins they might drop some useful items",
+    "type": "origins:multiple",
+    "piglin": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:piglin"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:chance",
+                    "chance": 0.10,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:ender_pearl\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.10,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:obsidian\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.15,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:gold_ingot\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.10,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:blaze_rod\",Count:1b}}"
+                    }
+                },
+                {
+                    "type": "origins:chance",
+                    "chance": 0.25,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:porkchop\",Count:4b}}"
+                    }
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "blaze": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:blaze"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:blaze_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Blaze\", \"italic\": false,\"color\":\"gold\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "husk": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:husk"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:husk_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Husk\", \"italic\": false,\"color\":\"#FAD5A5\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "drowned": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:drowned"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 1,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:drowned_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Drowned\", \"italic\": false,\"color\":\"blue\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "skeleton": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:skeleton"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:skeleton_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Skeleton\", \"italic\": false,\"color\":\"gray\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "spider": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:spider"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:spider_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Spider\", \"italic\": false,\"color\":\"dark_red\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "creeper": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:creeper"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:creeper_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Creeper\", \"italic\": false,\"color\":\"dark_green\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "enderman": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:enderman"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:enderman_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Enderman\", \"italic\": false,\"color\":\"light_purple\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "witch": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:witch"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:witch_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Witch\", \"italic\": false,\"color\":\"aqua\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "magmacube": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:magma_cube"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:magma_cube_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Magma Cube\", \"italic\": false,\"color\":\"gold\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "phantom": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:phantom"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:phantom_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Phantom\", \"italic\": false,\"color\":\"dark_aqua\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "slime": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:slime"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:slime_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Slime\", \"italic\": false,\"color\":\"green\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "ws": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:wither_skeleton"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:wither_skeleton_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Wither Skeleton\", \"italic\": false,\"color\":\"black\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "stray": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:stray"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:stray_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{of:1b,Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Stray\", \"italic\": false,\"color\":\"aqua\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "guardian": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:guardian"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:guardian_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Guardian\", \"italic\": false,\"color\":\"blue\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "cavespid": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:cave_spider"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 1,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:cave_spider_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Cave Spider\", \"italic\": false,\"color\":\"dark_red\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "shulker": {
+        "type": "origins:self_action_on_kill",
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:shulker"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:chance",
+                "chance": 0.05,
+                "action": {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "item",
+                    "tag": "{Item:{id:\"minecraft:shulker_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Tags:[\"abc\"]},display:{Name:'{\"text\":\"Soul of a Shulker\", \"italic\": false,\"color\":\"dark_purple\"}'}}}}"
+                }
+            }]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "!=",
+            "compare_to": 6
+        }
+    },
+    "badges":[
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/glowstone.png",
+            "text": "The mobs whose soul you can steal will glow and the anchored will glow blackish if you get close enough"
+        }
+    ]
+    
+}

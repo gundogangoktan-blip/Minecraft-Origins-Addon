@@ -1,0 +1,1674 @@
+{
+    "type":"origins:multiple",
+    "name": "§b§nBoon of the Wither",
+    "description": "Mobs that arent zombies you spawn with the stolen souls will now become anchored and now you have a %10 chance to steal souls",
+"summon":{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else_list",
+        "actions": [
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:spider_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:spider_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:spider_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon spider ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Spider\",\"color\":\"dark_red\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:spider_spawn_egg 1"
+                        }
+            ]
+                }
+
+            
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:skeleton_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:skeleton_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:skeleton_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon skeleton ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Skeleton\",\"color\":\"gray\",\"italic\":false}',HandItems:[{id:\"minecraft:bow\",Count:1b},{}]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:skeleton_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:creeper_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:creeper_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:creeper_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon creeper ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Creeper\",\"color\":\"dark_green\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:creeper_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:blaze_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:blaze_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:blaze_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon blaze ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Blaze\",\"color\":\"gold\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:blaze_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:enderman_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:enderman_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:enderman_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon enderman ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Enderman\",\"color\":\"light_purple\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:enderman_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:witch_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:witch_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:witch_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon witch ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Witch\",\"color\":\"#502274\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:witch_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:phantom_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:phantom_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:phantom_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon phantom ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Phantom\",\"color\":\"dark_aqua\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:phantom_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:wither_skeleton_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:wither_skeleton_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:wither_skeleton_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon wither_skeleton ^ ^1 ^1 {Team:\"hunter\",Attributes:[{Name:generic.follow_range,Base:30}],CustomName:'{\"text\":\"Soul of a Wither Skeleton\",\"color\":\"black\",\"italic\":false}',HandItems:[{id:\"minecraft:stone_sword\",Count:1b},{}]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:wither_skeleton_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:stray_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:stray_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:stray_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon stray ^ ^1 ^1 {Team:\"hunter\",Attributes:[{Name:generic.follow_range,Base:30}],CustomName:'{\"text\":\"Soul of a Stray\",\"color\":\"aqua\",\"italic\":false}',HandItems:[{id:\"minecraft:bow\",Count:1b},{}]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:stray_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:guardian_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:guardian_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:guardian_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon guardian ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Guardian\",\"color\":\"#72A0C1\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:guardian_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:cave_spider_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:cave_spider_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:cave_spider_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon cave_spider ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Cave Spider\",\"color\":\"dark_red\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:cave_spider_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shulker_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shulker_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shulker_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon shulker ^ ^ ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Shulker\",\"color\":\"dark_purple\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:shulker_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:ghast_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:ghast_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:ghast_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:upgrade",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon ghast ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Ghast\",\"color\":\"#EAE0CC\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:ghast_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            }
+            
+            
+        ]
+    },
+    
+    
+    "cooldown": 3,
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.use"
+    }
+},
+"spiderc":{
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "inverted": true,
+      "block": "minecraft:spawner"
+    },
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+            "type":"origins:or",
+            "conditions":[
+            {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:spider_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:spider_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:skeleton_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:skeleton_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:creeper_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:creeper_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:blaze_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:blaze_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:enderman_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:enderman_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:witch_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:witch_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:phantom_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:phantom_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:stray_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:stray_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:drowned_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:drowned_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:cave_spider_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:cave_spider_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:guardian_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:guardian_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:shulker_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:shulker_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:wither_skeleton_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:wither_skeleton_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:husk_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:husk_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zoglin_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zoglin_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:ghast_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:ghast_spawn_egg"
+    }
+        }
+    }
+    ]
+},
+{
+    "type": "origins:or",
+    "conditions": [
+        {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{of: 0b}"
+            }
+        },
+        {
+            "type": "origins:equipped_item",
+            "equipment_slot": "offhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{of: 0b}"
+            }
+        }
+    ]
+},
+{
+    "type": "origins:resource",
+    "resource": "sw:upgrade",
+    "comparison": "==",
+    "compare_to": 6
+}
+]
+}
+},
+"badges": [
+    {
+    "type": "origins:tooltip",
+    "sprite": "minecraft:textures/block/dead_bush.png",
+    "text": "You cant use this power until you absorb 5 nether stars"
+},
+{
+    "type": "origins:tooltip",
+    "sprite": "minecraft:textures/item/barrier.png",
+    "text": "You cannot use slimes and magma cubes as anchored"
+}
+
+]
+}

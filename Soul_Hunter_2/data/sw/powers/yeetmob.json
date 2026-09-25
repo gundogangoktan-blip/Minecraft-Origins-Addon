@@ -1,0 +1,119 @@
+{
+  "name": "§b§nBoon of the Enderman",
+  "description": "You can carry and throw ALL entities except armor stands and ender dragon.Even unstable tnt!",
+  "type": "origins:multiple",
+  "pickup": {
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+      "type": "origins:invert",
+      "action": {
+        "type": "origins:mount"
+      }
+    },
+    "bientity_condition": {
+      "type":"origins:target_condition",
+      "condition": {
+        "type":"origins:entity_type",
+        "inverted": true,
+        "entity_type": "minecraft:ender_dragon"
+      }
+    },
+    "condition": {
+      "type": "origins:and",
+      "conditions": [{
+          "type": "origins:sneaking"
+        },
+        {
+          "type": "origins:passenger",
+          "inverted": true
+        },
+        {
+          "type": "origins:equipped_item",
+          "equipment_slot": "mainhand",
+          "item_condition": {
+            "type": "origins:empty"
+          }
+        },
+        {
+          "type": "origins:resource",
+          "resource": "sw:upgrade",
+          "comparison": ">",
+          "compare_to": 4
+        }
+      ]
+    }
+  },
+  "drop": {
+    "type": "origins:active_self",
+    "cooldown": 1,
+    "hud_render": {
+      "should_render": false
+    },
+    "entity_action": {
+      "type": "origins:passenger_action",
+      "action": {
+        "type": "origins:dismount"
+      }
+    },
+    "key": {
+      "key": "key.sneak"
+    }
+  },
+  "throw": {
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+      "type": "origins:and",
+      "actions": [{
+          "type": "origins:target_action",
+          "action": {
+            "type": "origins:dismount"
+          }
+        },
+        {
+          "type": "origins:add_velocity",
+          "z": 0.25,
+          "y": -1
+        }
+      ]
+    },
+    "bientity_condition": {
+      "type": "origins:invert",
+      "condition": {
+        "type": "origins:riding"
+      }
+    },
+    "condition": {
+      "type": "origins:equipped_item",
+      "equipment_slot": "mainhand",
+      "item_condition": {
+        "type": "origins:empty"
+      }
+    }
+  },
+  "chicken": {
+    "type": "origins:modify_falling",
+    "velocity": 0.008,
+    "condition": {
+      "type": "origins:passenger",
+      "bientity_condition": {
+        "type": "origins:actor_condition",
+        "condition": {
+          "type": "origins:entity_type",
+          "entity_type": "minecraft:chicken"
+        }
+      }
+    }
+  },
+  "badges": [
+    {
+    "type": "origins:keybind",
+    "sprite": "origins:textures/gui/badge/active.png",
+    "text": "Trigger with %s while sneaking!"
+},
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "You cant use this power until you absorb 5 enderman souls"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+    "type":"origins:multiple",
+    "bar":{
+        "type":"origins:resource",
+        "max": 10,
+        "min": 0
+    },
+    "burn":{
+        "type": "origins:burn",
+    "interval": 100,
+    "burn_duration": 5,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:exposed_to_sun"
+            },
+            {
+                "type":"origins:resource",
+                "resource":"*:*_bar",
+                "comparison": "==",
+                "compare_to": 10
+            }
+        ]
+    }
+    },
+    "increase":{
+        "type":"origins:action_over_time",
+        "entity_action": {
+            "type":"origins:change_resource",
+            "resource":"*:*_bar",
+            "change": 1
+        },
+        "interval": 10,
+        "condition": {
+        "type": "origins:exposed_to_sun"
+            }
+    },
+    "decrease":{
+        "type":"origins:action_over_time",
+        "entity_action": {
+            "type":"origins:change_resource",
+            "resource":"*:*_bar",
+            "change": -1
+        },
+        "interval": 10,
+        "condition": {
+        "type": "origins:exposed_to_sun",
+        "inverted": true
+            }
+    },
+    "name":"§4§nUnholy",
+    "description": "You burn in sunlight and take %50 more damage from smite enchanted items"
+    
+}

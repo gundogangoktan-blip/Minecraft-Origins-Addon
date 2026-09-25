@@ -1,0 +1,14 @@
+{
+  "origins": [
+      {
+          "condition": { 
+            "type": "origins:nbt",
+            "inverted": true,
+            "nbt": "{Tags: [nosh]}"
+          },
+          "origins": [
+              "sw:sw"
+          ]
+      }
+  ]
+}

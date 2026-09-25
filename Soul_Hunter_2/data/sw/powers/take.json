@@ -1,0 +1,1830 @@
+{
+    "name": "§a§nHarvest",
+    "description": "Take the anchored back to where they belong",
+    "type":"origins:multiple",
+    "glow": {
+            "type": "origins:entity_glow",
+            "entity_condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type":"origins:or",
+                            "conditions": [
+                            {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:husk"
+                            },
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:zombie"
+                            },
+                            {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:zombified_piglin"
+                                
+                            },
+                            {
+                               
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:drowned"
+                                
+                            },
+
+                            {
+                                
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:zoglin"
+                                
+                            },
+                            {
+            
+            
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:phantom"
+                            
+            
+                        },
+                        {
+                           
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:blaze"
+                            
+                        },
+                        {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:witch"
+                            
+                        },
+                        {
+                           
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:wither_skeleton"
+                            
+                        },
+                        {
+                            
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:skeleton"
+                            
+                        },
+                        {
+                            
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:spider"
+                            
+                        },
+                        {
+                            
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:creeper"
+                        
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:enderman"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:guardian"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:stray"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:shulker"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:cave_spider"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:ghast"
+                        }
+                            ]
+                        }
+                    ]
+                },
+                "bientity_condition": {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 5
+                }
+            },
+    "cooldown":
+    {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 9
+        }
+        
+    },
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+
+    "particle":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:soul ~ ~ ~ 1 1 1 0.15 15"
+        },
+        "interval": 20,
+        "condition": 
+        
+            {
+                "type":"origins:and",
+                "conditions":[
+                    {
+                "type":"origins:power_active",
+                "power": "*:*_toggle"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "sw:take_cooldown",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            }
+},
+
+    "blaze":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -30
+                }
+                
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:blaze_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Blaze\", \"italic\": false,\"color\":\"gold\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:blaze"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "sw:take_toggle"
+            }
+        ]
+    }
+},
+"ghast":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -30
+                }
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:ghast_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Ghast\", \"italic\": false,\"color\":\"#EAE0CC\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:ghast"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "sw:take_toggle"
+            }
+        ]
+    }
+},
+"skeleton":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -30
+                }
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:skeleton_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Skeleton\", \"italic\": false,\"color\":\"gray\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:skeleton"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"spider":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -30
+                }
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:spider_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Spider\", \"italic\": false,\"color\":\"dark_red\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:spider"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"creeper":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -30
+                }
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:creeper_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Creeper\", \"italic\": false,\"color\":\"dark_green\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:creeper"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"enderman":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -60
+                }
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:enderman_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Enderman\", \"italic\": false,\"color\":\"light_purple\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:enderman"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"witch":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:witch_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Witch\", \"italic\": false,\"color\":\"#502274\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:witch"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"wskel":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:wither_skeleton_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Wither Skeleton\", \"italic\": false,\"color\":\"black\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:wither_skeleton"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"guardian":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:guardian_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Guardian\", \"italic\": false,\"color\":\"#72A0C1\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:guardian"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"cspider":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:cave_spider_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Cave Spider\", \"italic\": false,\"color\":\"dark_red\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:cave_spider"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"shulker":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:shulker_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Shulker\", \"italic\": false,\"color\":\"dark_purple\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:shulker"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"phantom":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:phantom_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Phantom\", \"italic\": false,\"color\":\"dark_aqua\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:phantom"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"stray":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:stray_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Stray\", \"italic\": false,\"color\":\"#068D9D\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:stray"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "sw:upgrade",
+                "comparison": "==",
+                "compare_to": 6
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+    }
+},
+"husk":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:husk_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Husk\",\"italic\": false,\"color\":\"#FAD5A5\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:husk"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+
+    }
+},
+"drowned":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:drowned_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Drowned\",\"italic\": false,\"color\":\"#72A0C1\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:drowned"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+
+    }
+},
+"zoglin":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:zoglin_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Zoglin\",\"italic\": false,\"color\":\"#E3B6D1\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:zoglin"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+
+    }
+},
+"zpiglin":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": -50
+                }
+
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "item",
+                        "tag": "{Item:{id:\"minecraft:zombified_piglin_spawn_egg\",Count:1b,tag:{of:1b,EntityTag:{Team:\"hunter\"},display:{Name:'{\"text\":\"Soul of a Zombified Piglin\", \"italic\": false,\"color\":\"#E3B6D1\"}'}}}}"
+                    }
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:take_cooldown"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.deplete",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:zombified_piglin"
+            }
+            ] 
+        }
+    },
+    "item_condition": {
+        "type": "origins:empty"
+    },
+    "hands": [
+        "main_hand"
+    ],
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:resource",
+                "resource": "sw:take_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            
+        ]
+
+    }
+},
+"badges": [
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/echo_shard.png",
+        "text": "Using this power on players that has the contract will break the soul contract,weakening the player and taking away the perks"
+    },
+    {
+        "type": "origins:keybind",
+        "sprite": "origins:textures/gui/badge/toggle.png",
+        "text": "Toggle with %s"
+    }
+]
+
+}

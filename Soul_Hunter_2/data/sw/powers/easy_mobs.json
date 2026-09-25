@@ -1,0 +1,84 @@
+{
+    "name": "§a§nCraft Spawner",
+    "description": "You can craft things to summon some mobs",
+    "type": "origins:multiple",
+    "7": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "crystal",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "#/#",
+                "#A#"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:glass"
+                },
+                "/": {
+                    "item": "minecraft:ender_pearl"
+                },
+                "A": {
+                    "item": "minecraft:blaze_rod"
+                }
+            },
+            "result": {
+                "item": "minecraft:end_crystal",
+                "count": 1
+            }
+        }
+    },
+    "8": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "spawner",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "S#S",
+                "#/#",
+                "S#S"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:iron_block"
+                },
+                "/": {
+                    "item": "minecraft:nether_star"
+                },
+                "S": {
+                    "item": "minecraft:lapis_block"
+                }
+            },
+            "result": {
+                "item": "minecraft:spawner",
+                "count": 1
+            }
+        }
+    },
+    "9": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "spawner2",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                " # ",
+                "#/#",
+                " # "
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:iron_block"
+                },
+                "/": {
+                    "item": "minecraft:jigsaw"
+                }
+            },
+            "result": {
+                "item": "minecraft:spawner",
+                "count": 1
+            }
+        }
+    }
+    
+}

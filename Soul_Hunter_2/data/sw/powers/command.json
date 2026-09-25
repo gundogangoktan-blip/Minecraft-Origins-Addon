@@ -1,0 +1,303 @@
+{
+    "type": "origins:multiple",
+    "name": "§a§nCommand The Anchored",
+    "description": "Command the anchored ones to attack the one you want",
+    "lead":{
+        "type": "origins:action_on_hit",
+    "bientity_action": {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:area_of_effect",
+    "radius": 30,
+    "bientity_action": {
+        "type": "origins:and",
+        "actions": [{
+                "type": "origins:damage",
+                "amount": 0,
+                "source": {
+                    "name": "cramming.player",
+                    "bypasses_armor": true,
+                    "out_of_world": false
+                }
+            },
+            {
+                "type": "origins:add_velocity",
+                "z": -0.1
+            }
+        ]
+    },
+    "bientity_condition": {
+        "type": "origins:target_condition",
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+        "command": "execute if entity @s[team=hunter]",
+        "comparison": "==",
+        "compare_to": 1
+                },
+                {
+                    "type": "origins:entity_type",
+                    "inverted":true,
+                    "entity_type": "minecraft:player"       
+                }
+            ]
+        }
+    }
+        }
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+        "command": "execute if entity @s[team=hunter]",
+        "comparison": "==",
+        "compare_to": 0
+                },
+                {
+                    "type":"origins:origin",
+                    "inverted": true,
+                    "origin": "sw:sw"
+                }
+            ]
+        }
+    },
+    "cooldown": 50
+    },
+    "defendme": {
+        "type": "origins:attacker_action_when_hit",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 30,
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:damage",
+                        "amount": 0,
+                        "source": {
+                            "name": "cramming.player",
+                            "bypasses_armor": true,
+                            "out_of_world": false
+                        }
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": -0.2
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "inverted":true,
+                            "entity_type": "minecraft:player"       
+                        }
+                        
+                    ]
+                }
+            }
+        },
+        "cooldown": 60
+    },
+    "commandattack": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:choice",
+                "actions": [
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"Foolish attempts\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 40
+                    },
+                    {
+                        "element": {    
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"Nothing can stop me\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 30
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"Revenge awaits me\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 15
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"I have to get them...\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 5
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"Feel the wrath of the hopeless!\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 20
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"I will not be bound again!\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 5
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"My revenge feeds my rage!\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 5
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"As long as I am free, I will fight!\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 5
+                    },
+                    {
+                        "element": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar {\"text\":\"I will not be restrained by idiots\",\"color\":\"aqua\",\"italic\":true}"
+                        },
+                        "weight": 20
+                    }
+            
+                ]
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 64,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:area_of_effect",
+                            "radius": 30,
+                            "include_target": false,
+                            "bientity_action": {
+                                "type": "origins:and",
+                                "actions": [{
+                                        "type": "origins:damage",
+                                        "amount": 0,
+                                        "source": {
+                                            "name": "cramming.player",
+                                            "bypasses_armor": true,
+                                            "out_of_world": false
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:add_velocity",
+                                        "z": -0.5
+                                    }
+                                ]
+                            },
+                            "bientity_condition": {
+                                "type":"origins:and",
+                                "conditions": [
+                                    {
+                                        "type":"origins:target_condition",
+                                        "condition": {
+                                            "type":"origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "inverted":true,
+                                                    "entity_type": "minecraft:player"       
+                                                },
+                                                { 
+                                                    "type": "origins:command",
+                                                    "command": "execute if entity @s[team=hunter]",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type":"origins:actor_condition",
+                                        "condition": {
+                                            "type":"origins:and",
+                                            "conditions": [
+                                                { 
+                                                    "type": "origins:command",
+                                                    "command": "execute if entity @s[team=hunter]",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
+                                                },
+                                                {
+                                                    "type":"origins:origin",
+                                                    "inverted": true,
+                                                    "origin": "sw:sw"
+                                                }
+
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 60,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 22
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {     
+            "type":"origins:and",
+            "conditions": [
+        {
+            "type": "origins:resource",
+            "resource": "sw:switchpower_res",
+            "comparison": "==",
+            "compare_to": 1
+        }
+        ]
+        }
+    },
+    "badges":[
+        {
+    "type": "origins:keybind",
+    "sprite": "origins:textures/gui/badge/active.png",
+    "text": "Toggle with %s in gear 1!"
+},
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/echo_shard.png",
+        "text": "Using this power on players while holding 5 lapis blocks will consume them and offer the player a soul contract"
+    }
+
+]
+}

@@ -1,0 +1,256 @@
+{
+    "name": "§a§nContract",
+    "description": "Use §aCommand Anchored§r on the player while holding 5 lapis mainhand blocks to offer and use §aHarvest§r to break the contract",
+    "type":"origins:multiple",
+    "1":{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:raycast",
+    "distance": 20,
+    "block": true,
+    "entity": true,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "bientity_action": {
+        "type": "origins:target_action",
+        "action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                    "type":"origins:execute_command",
+                    "command": "tag @s add contract"
+                },
+                {
+                "type":"origins:delay",
+                "action": {
+            "type": "origins:execute_command",
+            "command": "tellraw @s[team=!hunter,tag=contract] {\"text\":\"A soul hunter offers you a soul contract if you accept,normal zombies and anchored souls will not attack you.However they can break the contract when they wish,leaving you weakened for some time\",\"color\":\"aqua\",\"bold\":true}"
+                },
+                "ticks": 3
+            },
+            {
+                "type":"origins:delay",
+                "action": {
+                    "type":"origins:execute_command",
+                     "command":"tellraw @s[tag=contract,team=!hunter] [{\"text\":\"Accept\",\"color\":\"aqua\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"team join hunter @s\"}},{\"text\":\" \"},{\"text\":\"Decline\",\"color\":\"aqua\",\"hoverEvent\":{\"action\":\"show_text\",\"contents\":[{\"text\":\"You decline\"}]}}}]"
+                },
+                "ticks": 5
+            }
+        ]
+        }
+    },
+    "bientity_condition": {
+        "type":"origins:and",
+        "conditions": [            
+            {
+                "type":"origins:actor_condition",
+                "condition":{
+                "type":"origins:and",
+                "conditions":[
+                    {
+                "type": "origins:resource",
+                "resource": "sw:switchpower_res",
+                "comparison": "==",
+                "compare_to": 1
+                    },
+                    {
+                        "type":"origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type":"origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:lapis_block"
+                                    }
+                                },
+                                {
+                                    "type": "origins:amount",
+                                    "comparison": ">=",
+                                    "compare_to": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+            {
+                "type":"origins:target_condition",
+                "condition": {
+                    
+                    "type": "origins:command",
+                    "command": "execute if entity @s[team=hunter]",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            }
+        ]
+    },
+    "hit_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:execute_command",
+        "command": "title @s actionbar {\"text\":\"I offered a soul contract\",\"color\":\"aqua\",\"italic\":true}"
+            },
+            {
+                "type":"origins:execute_command",
+                "command": "clear @s minecraft:lapis_block 5"
+            }
+        ]
+    }
+    },
+    "cooldown": 20,
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.origins.primary_active"
+    },
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+        "type": "origins:resource",
+        "resource": "sw:switchpower_res",
+        "comparison": "==",
+        "compare_to": 1
+            },
+            {
+                "type":"origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:lapis_block"
+                            }
+                        },
+                        {
+                            "type": "origins:amount",
+                            "comparison": ">=",
+                            "compare_to": 5
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+},
+"2":{
+    "type": "origins:action_on_entity_use",
+    "bientity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.3 0.3 0.3 0.009 4 normal @a"
+                },
+                {
+                    "type":"origins:damage",
+                    "amount": 20,
+                    "source": {
+                        "name": "wither"
+                    }
+                },
+                {
+                    "type":"origins:execute_command",
+                    "command": "team leave @s "
+                },
+                {
+                    "type":"origins:execute_command",
+                    "command": "tag @s remove contract"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:weakness",
+                            "amplifier": 2,
+                            "duration": 400,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:slowness",
+                            "amplifier": 2,
+                            "duration": 400,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar {\"text\":\"I broke a soul contract\",\"color\":\"aqua\",\"italic\":true}"
+                            
+                }
+            ]
+        }
+    }
+    ]
+    },
+    "bientity_condition": {
+        "type":"origins:target_condition",
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                
+            },
+            {      
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:player"
+            },
+            {
+            "type": "origins:command",
+            "command": "execute if entity @s[tag=contract]",
+            "comparison": "==",
+            "compare_to": 1
+            
+        }
+            ] 
+        }
+    },
+    "condition": {
+        "type":"origins:and",
+        "conditions":[
+            {
+                "type": "origins:power_active",
+                "power": "sw:take_toggle"
+            }
+        ]
+    }
+},
+"badges": [
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/echo_shard.png",
+        "text": "Normal zombies and anchored souls will not attack the player and they will be able to use the §bBoon of the Skeleton§r horse"
+    }
+]
+}

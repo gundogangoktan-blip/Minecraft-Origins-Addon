@@ -1,0 +1,146 @@
+{
+    "name": "§a§nBoost the Anchored",
+    "description": "You can fully heal and boost the anchored for 20 seconds by hitting them",
+    "type":"origins:multiple",
+    "boost":{
+    "type": "origins:action_on_hit",
+    "bientity_action": {
+        "type": "origins:and",
+        "actions": [{
+                "type": "origins:target_action",
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:apply_effect",
+                    "effects": [{
+                            "effect": "minecraft:speed",
+                            "duration": 400,
+                            "amplifier": 2,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:strength",
+                            "duration": 400,
+                            "amplifier": 1,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:weakness",
+                            "duration": 400,
+                            "amplifier": 0,
+                            "show_particles": true,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:resistance",
+                            "duration": 400,
+                            "amplifier": 1,
+                            "show_particles": true,
+                            "show_icon": true
+                        }
+
+                    ]
+                },
+                {
+                    "type":"origins:heal",
+                    "amount": 100
+                }
+            ]
+                
+                }
+            },
+            {
+                "type": "origins:actor_action",
+                "action": {
+                    "type":"origins:and",
+                    "actions":
+                    [
+                        {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:block.respawn_anchor.charge",
+                    "volume": 1,
+                    "pitch": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "sw:str_cooldown"
+                }
+                    ]
+                }
+            }
+        ]
+    },
+    "bientity_condition": {
+        "type": "origins:and",
+        "conditions": [
+
+            {
+                "type":"origins:target_condition",
+                "condition":{
+                    "type": "origins:command",
+                "command": "execute if entity @s[team=hunter]",
+                "comparison": "==",
+                "compare_to": 1
+                }
+                
+            },
+            {
+                "type":"origins:target_condition",
+                "condition":{
+                "type": "origins:entity_type",
+                "inverted": true,
+                "entity_type": "minecraft:player"
+                }
+            }
+        ]
+    },
+    "condition": 
+        {
+            "type":"origins:and",
+            "conditions":[
+                {
+            "type": "origins:resource",
+            "resource": "sw:switchpower_res",
+            "comparison": "==",
+            "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:str_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+    "cooldown": 0,
+    "hud_render": {
+        "should_render": false
+    }
+},
+"cooldown":
+    {
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 14
+        }
+        
+    },
+    "badges":[
+        {
+    "type": "origins:keybind",
+    "sprite": "origins:textures/gui/badge/active.png",
+    "text": "Use while in gear 2!"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/emerald.png",
+        "text": "You can use this power to weaken zombie villagers,cure them with a golden apple while they are weakened"
+    }
+]
+}

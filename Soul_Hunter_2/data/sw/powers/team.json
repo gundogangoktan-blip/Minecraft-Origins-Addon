@@ -1,0 +1,15 @@
+{
+    "type": "origins:action_over_time",
+    "hidden":true,
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "team join hunter @e[tag=abc,distance=1..20]"
+    },
+    "interval": 10,
+    "condition": {
+        "type":"origins:resource",
+            "resource": "sw:upgrade",
+            "comparison": "==",
+            "compare_to": 6
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "name": "§4§nFeeds from the Souls",
+    "description": "You can only eat soul infused or magical foods",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "tag": "sw:veggie"
+        }
+    }
+}

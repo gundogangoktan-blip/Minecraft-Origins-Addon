@@ -1,0 +1,27 @@
+{
+    "hidden":true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:soul_fire_flame ~ ~ ~ 1 1 1 0.15 15"
+    },
+    "condition": 
+        {
+            "type":"origins:and",
+            "conditions":[
+                {
+            "type": "origins:resource",
+            "resource": "sw:switchpower_res",
+            "comparison": "==",
+            "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "sw:str_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+
+}

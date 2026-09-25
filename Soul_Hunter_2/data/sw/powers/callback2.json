@@ -1,0 +1,37 @@
+{
+    "hidden": false,
+    "name": "§a§nGather the Anchored",
+    "description": "You can gather the anchored and make them follow you",
+    "type": "origins:multiple",
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type":"origins:and",
+            "conditions": [
+                {
+            "type": "origins:resource",
+            "resource": "sw:switchpower_res",
+            "comparison": "==",
+            "compare_to": 3
+                }
+            ]
+        }
+    },
+    "badges": [
+        {
+    "type": "origins:keybind",
+    "sprite": "origins:textures/gui/badge/toggle.png",
+    "text": "Toggle with %s in gear 6!"
+},
+        {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/block/dead_bush.png",
+        "text": "Wont work if you are sneaking"
+    }
+    
+]
+}

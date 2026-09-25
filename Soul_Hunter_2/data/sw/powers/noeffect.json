@@ -1,0 +1,13 @@
+{
+	"name": "§a§nPure Soul",
+	"description": "You are immune to hunger,poison,wither,blindness and darkness",
+	"type": "origins:effect_immunity",
+	"effects": [
+		"minecraft:hunger",
+		"minecraft:poison",
+		"minecraft:wither",
+		"minecraft:blindness",
+		"minecraft:darkness"
+
+	]
+}

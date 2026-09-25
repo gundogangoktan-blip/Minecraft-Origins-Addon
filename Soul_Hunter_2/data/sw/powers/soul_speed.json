@@ -1,0 +1,18 @@
+{
+    "type": "origins:modify_attribute",
+    "name": "§a§nAbsorb Soul",
+    "description": "You walk faster than others in soul sand and you get saturation when above soul sand in soul sand valley",
+    "attribute": "minecraft:generic.movement_speed",
+    "modifier": {
+        "operation": "multiply_base_multiplicative",
+        "value": 0.7016
+    },
+    "tick_rate": 1,
+    "condition": {
+        "type": "origins:on_block",
+        "block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:soul_sand"
+        }
+    }
+}

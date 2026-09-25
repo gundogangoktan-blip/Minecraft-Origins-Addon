@@ -1,0 +1,46 @@
+{
+    "name": "§b§nWeakened",
+    "description": "To get your your powers back you have to absorb some souls,all in the correct order",
+    "type": "origins:resource",
+    "min": 0,
+    "max": 6,
+    "start_value": 0,
+    "badges":[
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/spider_eye.png",
+        "text": "Use 5 Spider souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/bone.png",
+        "text": "Use 5 Skeleton souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/gunpowder.png",
+        "text": "Use 5 Creeper souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/blaze_rod.png",
+        "text": "Use 5 Blaze souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/ender_eye.png",
+        "text": "Use 5 Enderman souls"
+    },
+    {
+        "type": "origins:tooltip",
+        "sprite": "minecraft:textures/item/nether_star.png",
+        "text": "Use 5 Nether Stars"
+    },
+    {
+        "type": "origins:keybind",
+        "sprite": "minecraft:textures/block/beacon.png",
+        "text": "Offhand-Primary in gear 4"
+    }
+]
+
+}

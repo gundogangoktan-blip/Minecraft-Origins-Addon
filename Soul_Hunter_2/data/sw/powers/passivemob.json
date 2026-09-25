@@ -1,0 +1,48 @@
+{
+    "name": "§a§nAnchored Souls",
+    "description": "All normal zombies and zombies that are spawned using your powers are passive towards you and will fight with you",
+    "hidden": false,
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "team add hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter color dark_gray "
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter prefix [{\"text\":\"[\",\"color\":\"gray\"},{\"text\":\"Soulbound\",\"color\":\"aqua\"},{\"text\":\"] \",\"color\":\"gray\"}]]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter friendlyFire true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify hunter collisionRule pushOwnTeam"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join hunter @e[type=minecraft:zombie]"
+                }
+                
+            ]
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "sw:callback_toggle",
+            "inverted": true
+        }
+    }
+}

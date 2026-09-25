@@ -1,0 +1,14 @@
+{
+    "name": "§a§nCarrier of Souls",
+    "description": "You can pick up the souls trapped within the spawners",
+    "type": "origins:action_on_block_break",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "give @s minecraft:jigsaw{display:{Name:'{\"text\":\"Souls within a spawner\", \"italic\": true}'}}"
+    },
+    "block_condition": {
+        "type": "origins:block",
+        "block": "minecraft:spawner"
+    },
+    "only_when_harvested": false
+}

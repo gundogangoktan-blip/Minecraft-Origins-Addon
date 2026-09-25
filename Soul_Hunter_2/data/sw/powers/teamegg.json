@@ -1,0 +1,613 @@
+{
+    "type":"origins:multiple",
+    "name": "§b§nBoon of the Wither",
+    "description": "Mobs you spawn with the stolen souls will now become anchored and now you have a %10 chance to steal souls",
+    "hidden": true,
+"summon":{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:if_else_list",
+        "actions": [
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:husk_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:husk_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:husk_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon husk ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Husk\",\"color\":\"#FAD5A5\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:husk_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:drowned_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:drowned_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:drowned_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon drowned ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Drowned\",\"color\":\"#72A0C1\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:drowned_spawn_egg 1"
+                        }
+            ]
+                }
+                
+                
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zombified_piglin_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zombified_piglin_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zombified_piglin_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon zombified_piglin ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Zombified Piglin\",\"color\":\"#E3B6D1\",\"italic\":false}',HandItems:[{id:\"minecraft:golden_sword\",Count:1b},{}]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:zombified_piglin_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zoglin_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zoglin_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zoglin_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon zoglin ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Zoglin\",\"color\":\"#E3B6D1\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:zoglin_spawn_egg 1"
+                        }
+            ]
+                }
+            },
+            {
+                "condition": {
+                    "type":"origins:and",
+                    "conditions": [
+                        {
+                        "type":"origins:or",
+                        "conditions":[
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zombie_villager_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zombie_villager_spawn_egg"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:zombie_villager_spawn_egg"
+                                }
+                                
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "offhand",
+                            "item_condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{of: 0b}"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:raycast",
+    "distance": 6,
+    "block": true,
+    "entity": false,
+    "shape_type": "visual",
+    "fluid_handling": "any",
+    "block_condition": {
+        "type":"origins:block",
+        "inverted": true,
+        "block": "minecraft:spawner"
+    }
+                }
+                    ]
+                },
+                "action": {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                    "type": "origins:execute_command",
+                    "command": "summon minecraft:zombie_villager ^ ^1 ^1 {Team:\"hunter\",CustomName:'{\"text\":\"Soul of a Villager\",\"color\":\"white\",\"italic\":false}'}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                    "command": "clear @s minecraft:zombie_villager_spawn_egg 1"
+                        }
+            ]
+                }
+            } 
+        ]
+    },
+    
+    
+    "cooldown": 3,
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.use"
+    }
+},
+"prevent":{
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "inverted": true,
+      "block": "minecraft:spawner"
+    },
+    "condition": {
+            "type":"origins:and",
+            "conditions":[
+            {
+                "type": "origins:or",
+            "conditions":[
+                {
+                    "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:husk_spawn_egg"
+                }
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:husk_spawn_egg"
+                }
+                    }
+                },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:drowned_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:drowned_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zombified_piglin_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zombified_piglin_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zoglin_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zoglin_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zombie_villager_spawn_egg"
+    }
+        }
+    },
+    {
+        "type": "origins:equipped_item",
+    "equipment_slot": "offhand",
+        "item_condition": {
+            "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:zombie_villager_spawn_egg"
+    }
+        }
+    }
+    ]
+},
+{
+    "type": "origins:or",
+    "conditions": [
+        {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{of: 0b}"
+            }
+        },
+        {
+            "type": "origins:equipped_item",
+            "equipment_slot": "offhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{of: 0b}"
+            }
+        }
+    ]
+}
+            ]
+        }
+
+}
+
+}

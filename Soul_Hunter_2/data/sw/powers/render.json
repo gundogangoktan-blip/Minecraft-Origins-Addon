@@ -1,0 +1,89 @@
+{
+    "hidden":true,
+    "type": "origins:multiple",
+    "hide": {
+        "type": "apoli:prevent_entity_render",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_reso_f5",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:riding",
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "apoli:entity_type",
+                        "entity_type": "minecraft:player"
+                    }
+                }
+            }
+        }
+    },
+    "act_f5": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.togglePerspective"
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_reso_f5",
+            "operation": "add",
+            "change": 1
+        }
+    },
+    "reso_f5": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "hud_render": {"should_render": false},
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_reso_f5",
+            "operation": "set",
+            "change": 0
+        }
+    },
+    "init": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:execute_command",
+            "command": "scoreboard objectives add resetf5 trigger"
+        }
+    },
+    "reset_f5": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:scoreboard",
+                    "comparison": "!=",
+                    "compare_to": 0,
+                    "objective": "resetf5"
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [{
+                        "type": "origins:execute_command",
+                        "command": "scoreboard players set @s resetf5 0"
+                    },{
+                        "type": "origins:change_resource",
+                        "resource": "*:*_reso_f5",
+                        "operation": "set",
+                        "change": 0
+                    }]
+                }
+                
+            },{
+                "type": "origins:execute_command",
+                "command": "scoreboard players enable @s resetf5"
+            }]
+        }
+    }
+}
